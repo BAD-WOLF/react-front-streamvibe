@@ -1,8 +1,6 @@
 services:
   app:
     build:
-      context: .
-      dockerfile: docker/Dockerfile
       target: base
     environment:
       NODE_ENV: development
