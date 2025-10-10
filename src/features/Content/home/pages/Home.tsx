@@ -1,12 +1,12 @@
 import type {FC, ReactElement} from 'react';
 import {useEffect, useState} from "react";
-import {Header} from "@layout/Header";
-import {Footer} from "@layout/Footer";
-import {DivineLines} from "@layout/DivineLines";
+import {Header} from "@layout/Header.tsx";
+import {Footer} from "@layout/Footer.tsx";
+import {DivineLines} from "@layout/DivineLines.tsx";
 import {FeaturedMovies} from "@content/home/components/FeaturedMovies.tsx";
-import {CategoriesSection} from "@content/home/components/CategoriesSection";
-import {getMovieList} from "@content/services/movieList.service";
-import type {Movie} from "@content/types/movie";
+import {CategoriesSection} from "@content/home/components/CategoriesSection.tsx";
+import {getMovieList} from "@content/services/movieList.service.ts";
+import type {Movie} from "@content/types/movie.ts";
 
 export const Home: FC = (): ReactElement => {
     const [movies, setMovies] = useState<Movie[]>([]);

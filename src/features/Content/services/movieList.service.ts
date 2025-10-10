@@ -1,4 +1,4 @@
-import type {Movie} from "@content/types/movie";
+import type {Movie} from "@content/types/movie.ts";
 
 /**
  * Returns the list of mocked movies or via fetch for FeaturedMovies

@@ -2,18 +2,17 @@
 import {promises as fs} from "fs";
 import * as fsSync from "fs";
 import path from "path";
-import {spawnSync} from "child_process";
 
 /**
  * Read argument --locales:
- * - First tries process.env.npm_config_locales (npm sends --locales=... here)
+ * - First tries globalThis.global.process.env.npm_config_locales (npm sends --locales=... here)
  * - Then tries argv (--locales=value or --locales value)
  */
 function readLocalesArg() {
-    const envVal = process.env.npm_config_locales;
+    const envVal = globalThis.global.process.env.npm_config_locales;
     if (envVal && String(envVal).trim()) return String(envVal);
 
-    const argv = process.argv.slice(2);
+    const argv = globalThis.global.process.argv.slice(2);
     const idx = argv.findIndex(
         (a) => a === "--locales" || a.startsWith("--locales=")
     );
@@ -31,7 +30,7 @@ function parseLocales(raw) {
 }
 
 async function updateLocalesFile(newLocales) {
-    const filePath = path.resolve(process.cwd(), "locales.json");
+    const filePath = path.resolve(globalThis.global.process.cwd(), "locales.json");
     let data = {locales: []};
 
     // make sure the file exists
@@ -65,7 +64,7 @@ async function updateLocalesFile(newLocales) {
 function runI18nextParser() {
     const cmd = "npx";
     const args = ["i18next-parser", "--config", "i18next-parser.config.cjs"];
-    const res = spawnSync(cmd, args, {stdio: "inherit", shell: true});
+    const res = globalThis.spawnSync(cmd, args, {stdio: "inherit", shell: true});
     return res.status ?? 1;
 }
 
@@ -76,15 +75,15 @@ function runI18nextParser() {
 
         if (locales.length) {
             const updated = await updateLocalesFile(locales);
-            console.log(`✅ locales.json updated: [${updated.join(", ")}]`);
+            globalThis.global.console.log(`✅ locales.json updated: [${updated.join(", ")}]`);
         } else {
-            console.log("ℹ️ no --locales provided; skipping locales.json update.");
+            globalThis.global.console.log("ℹ️ no --locales provided; skipping locales.json update.");
         }
 
         const exitCode = runI18nextParser();
-        process.exit(exitCode);
+        globalThis.global.process.exit(exitCode);
     } catch (err) {
-        console.error("❌ i18n-extract failed:", err);
-        process.exit(1);
+        globalThis.global.console.error("❌ i18n-extract failed:", err);
+        globalThis.global.process.exit(1);
     }
 })();

@@ -1,7 +1,7 @@
 import type {FC, ReactElement} from "react";
 import {motion} from "framer-motion";
-import {SectionTitle} from "@content/components/SectionTitle";
-import {MovieGrid} from "@content/components/MovieGrid";
+import {SectionTitle} from "@content/components/SectionTitle.tsx";
+import {MovieGrid} from "@content/components/MovieGrid.tsx";
 import { Trans } from 'react-i18next';
 import { t } from 'i18next';
 
@@ -13,13 +13,13 @@ const sectionTitles: string[] = [
 
 export const CategoriesSection: FC = (): ReactElement => (
     <section className="px-6 py-20 space-y-24">
-        {sectionTitles.map((title: string): ReactElement => (
-            <div key={title} className="space-y-6">
+        {sectionTitles.map((title: string, sectionIdx: number) => (
+            <div key={sectionIdx} className="space-y-6">
                 <SectionTitle title={title}/>
                 <MovieGrid>
                     {[...Array(10)].map((_: unknown, idx: number): ReactElement => (
                         <motion.div
-                            key={idx}
+                            key={`${sectionIdx}-${idx}`} // combinate section and item to make key
                             whileHover={{scale: 1.1, rotate: -1}}
                             className="min-w-[220px] h-[330px] rounded-xl overflow-hidden bg-[#1E3A5F] border border-[#9B111E]/40 shadow-[0_0_20px_#5B21B6] relative"
                         >

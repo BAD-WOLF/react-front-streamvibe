@@ -6,6 +6,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
     { ignores: ['dist'] },
+
     {
         files: ['**/*.{ts,tsx}'],
         languageOptions: {
@@ -23,9 +24,12 @@ export default tseslint.config(
                 { allowConstantExport: true },
             ],
             'no-nested-ternary': 'off',
+
+            'semi': 'off',
+            '@/semi': ['error', 'always'],
         },
     },
+
     ...tseslint.configs.recommended,
     js.configs.recommended
 );
-

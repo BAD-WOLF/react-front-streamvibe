@@ -1,6 +1,6 @@
 import type {FC, ReactElement} from "react";
-import type {Movie} from "@content/types/movie";
-import {MovieCard} from "@content/home/components/MovieCard";
+import type {Movie} from "@content/types/movie.ts";
+import {MovieCard} from "@content/home/components/MovieCard.tsx";
 
 export const FeaturedMovies: FC<{ movies: Array<Movie>; }> = ({movies}: { movies: Array<Movie>; }): ReactElement => (
     <section className="relative h-[90vh] flex items-center justify-center">

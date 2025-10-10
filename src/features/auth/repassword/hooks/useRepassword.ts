@@ -1,11 +1,11 @@
 import {
     requestPasswordReset, resetPassword, validateResetToken,
 } from "@auth/repassword/services/repassword.service.ts";
-import {RepasswordMode, type RepasswordModeType,} from "@auth/repassword/types/RepasswordMode.ts";
-import type {RepasswordRequestResponse, RepasswordValidateResponse} from "@shared/types/auth"
+import {RepasswordMode, type RepasswordModeType} from "@auth/repassword/types/RepasswordMode.ts";
+import type {RepasswordRequestResponse, RepasswordValidateResponse} from "@shared/types/auth/index.ts";
 import type {UseRepasswordReturn} from "@auth/repassword/types/UseRepasswordReturn.ts";
 import {validateRepasswordFields} from "@auth/repassword/utils/validateRepassword.ts";
-import {calculatePasswordStrength} from '@auth/utils/passwordStrength.service.ts'
+import {calculatePasswordStrength} from '@auth/utils/passwordStrength.service.ts';
 import {type Dispatch, type FormEvent, type SetStateAction, useCallback, useEffect, useState} from "react";
 import { t } from "i18next";
 
