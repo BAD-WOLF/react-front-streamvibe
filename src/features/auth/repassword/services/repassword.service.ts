@@ -5,7 +5,7 @@ import type {
     RepasswordValidatePayload,
     RepasswordResetPayload,
     RepasswordResetResponse
-} from "@shared/types/auth";
+} from "@shared/types/auth/index.ts";
 import { t } from "i18next";
 
 const VITE_BACKEND_API_DOMAIN: string = import.meta.env.VITE_BACKEND_API_DOMAIN;

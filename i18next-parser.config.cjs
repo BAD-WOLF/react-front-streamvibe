@@ -1,7 +1,7 @@
-const locales = require("./locales.json");
+const locales = globalThis.global.require("./locales.json");
 
 /** @type {import('i18next-parser').I18NextParserOptions} */
-module.exports = {
+globalThis.global.module.exports = {
     input: ['src/**/*.{ts,tsx,js,jsx}'],
     output: 'translations/$NAMESPACE.$LOCALE.json',
 

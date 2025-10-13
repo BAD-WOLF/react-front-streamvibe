@@ -3,6 +3,10 @@ import path from 'path';
 import {defineConfig} from 'vite';
 import tailwindcss from "@tailwindcss/vite";
 import yaml from '@modyfi/vite-plugin-yaml';
+import {fileURLToPath} from "url";
+
+const __filename:string = fileURLToPath(import.meta.url);
+const __dirname: string = path.dirname(__filename);
 
 export default defineConfig({
     server: {
@@ -23,4 +27,4 @@ export default defineConfig({
             '@shared': path.resolve(__dirname, 'src/shared'),
         },
     },
-})
+});
