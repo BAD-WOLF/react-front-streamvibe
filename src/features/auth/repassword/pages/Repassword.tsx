@@ -1,10 +1,10 @@
-import EmailRequestForm from "@auth/repassword/components/EmailRequestForm";
-import RepasswordSuccess from "@auth/repassword/components/RepasswordSuccess";
-import ResetPasswordForm from "@auth/repassword/components/ResetPasswordForm";
-import {useRepassword} from "@auth/repassword/hooks/useRepassword";
+import EmailRequestForm from "@auth/repassword/components/EmailRequestForm.tsx";
+import RepasswordSuccess from "@auth/repassword/components/RepasswordSuccess.tsx";
+import ResetPasswordForm from "@auth/repassword/components/ResetPasswordForm.tsx";
+import {useRepassword} from "@auth/repassword/hooks/useRepassword.ts";
 
-import {RepasswordMode, type RepasswordModeType} from "@auth/repassword/types/RepasswordMode";
-import type {UseRepasswordReturn} from '@auth/repassword/types/UseRepasswordReturn.ts'
+import {RepasswordMode, type RepasswordModeType} from "@auth/repassword/types/RepasswordMode.ts";
+import type {UseRepasswordReturn} from '@auth/repassword/types/UseRepasswordReturn.ts';
 import {type ReactElement, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import { Trans } from "react-i18next";

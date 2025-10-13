@@ -1,5 +1,5 @@
-import * as styles from "@shared/styles/ts/login/LoginPageStyles";
-import type {InputField} from "@shared/types/InputField";
+import * as styles from "@shared/styles/ts/login/LoginPageStyles.ts";
+import type {InputField} from "@shared/types/InputField.ts";
 import type {ChangeEvent, HTMLAttributes, ReactElement} from "react";
 import {cloneElement} from "react";
 import {FaEye, FaEyeSlash} from "react-icons/fa";

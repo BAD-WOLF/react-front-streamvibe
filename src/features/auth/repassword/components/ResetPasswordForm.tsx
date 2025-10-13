@@ -1,8 +1,8 @@
-import type {UseRepasswordReturn} from '@auth/repassword/types/UseRepasswordReturn';
-import InputFieldGroup from '@shared/components/auth/InputFieldGroup.tsx'
-import PasswordStrengthBar from '@shared/components/auth/PasswordStrengthBar';
-import * as styles from "@shared/styles/ts/login/LoginPageStyles";
-import type {InputField} from '@shared/types/InputField';
+import type {UseRepasswordReturn} from '@auth/repassword/types/UseRepasswordReturn.ts';
+import InputFieldGroup from '@shared/components/auth/InputFieldGroup.tsx';
+import PasswordStrengthBar from '@shared/components/auth/PasswordStrengthBar.tsx';
+import * as styles from "@shared/styles/ts/login/LoginPageStyles.ts";
+import type {InputField} from '@shared/types/InputField.ts';
 import type {ReactElement} from 'react';
 import {FaLock} from 'react-icons/fa';
 import { t } from "i18next";

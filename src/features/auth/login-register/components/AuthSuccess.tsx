@@ -1,6 +1,6 @@
 // Component displayed after successful login
 
-import {AuthMode} from '@auth/login-register/types/AuthMode.ts'
+import {AuthMode} from '@auth/login-register/types/AuthMode.ts';
 import type {ReactElement} from "react";
 import { t } from "i18next";
 import { Trans } from 'react-i18next';

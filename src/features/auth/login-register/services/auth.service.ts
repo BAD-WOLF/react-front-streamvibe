@@ -1,4 +1,4 @@
-import type {LoginPayload, LoginResponse, RegisterPayload, RegisterResponse,} from "@shared/types/auth";
+import type {LoginPayload, LoginResponse, RegisterPayload, RegisterResponse,} from "@shared/types/auth/index.js";
 import { t } from "i18next";
 
 const VITE_BACKEND_API_DOMAIN: string = import.meta.env.VITE_BACKEND_API_DOMAIN;
@@ -6,7 +6,6 @@ const VITE_BACKEND_API_DOMAIN: string = import.meta.env.VITE_BACKEND_API_DOMAIN;
 /**
  * Perform user login and receive JWT + refresh token
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function loginService(
     _locale: string,
     payload: LoginPayload
@@ -16,6 +15,8 @@ export async function loginService(
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(payload),
     });
+
+    console.log(res);
 
     if (!res.ok) {
         const errorData: any = await res.json();

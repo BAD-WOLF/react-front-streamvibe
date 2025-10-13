@@ -11,5 +11,5 @@ export default function App(): ReactElement {
                 <AppRoutes/>
             </StrictMode>
         </main>
-    )
+    );
 }

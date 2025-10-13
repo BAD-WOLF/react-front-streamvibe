@@ -1,5 +1,5 @@
-import type {Movie} from "@content/types/movie";
-import {preloadVideo} from "@content/utils/videoUtils";
+import type {Movie} from "@content/types/movie.ts";
+import {preloadVideo} from "@content/utils/videoUtils.ts";
 import {motion} from "framer-motion";
 import type {FC, ReactElement, RefObject} from "react";
 import {useEffect, useRef} from "react";
