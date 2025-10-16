@@ -40,16 +40,20 @@ const initialLng: string | undefined = (
     }
 )();
 
-await i18n.use(initReactI18next).init({
-    resources,
-    lng: initialLng,
-    fallbackLng: 'en',
-    ns: namespaces.length ? namespaces : ['messages'],
-    defaultNS: 'messages',
-    keySeparator: ' ',
-    interpolation: {escapeValue: false},
-    debug: false, // Use true for i18n debugging
-});
+export const i18nReady: Promise<void> = (
+    async (): Promise<void> => {
+        await i18n.use(initReactI18next).init({
+            resources,
+            lng: initialLng,
+            fallbackLng: 'en',
+            ns: namespaces.length ? namespaces : ['messages'],
+            defaultNS: 'messages',
+            keySeparator: ' ',
+            interpolation: {escapeValue: false},
+            debug: false,
+        });
+    }
+)();
 
 declare global {
     interface Window {
