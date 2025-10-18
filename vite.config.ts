@@ -27,4 +27,12 @@ export default defineConfig({
             '@shared': path.resolve(__dirname, 'src/shared'),
         },
     },
+
+    esbuild: {
+        target: 'es2022', // ou 'esnext'
+    },
+
+    build: {
+        target: 'es2022', // garante compatibilidade com top-level await
+    }
 });
