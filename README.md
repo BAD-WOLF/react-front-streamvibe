@@ -1,54 +1,14 @@
-# React + TypeScript + Vite
+# StreamVibe (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**StreamVibe** is a TV shows and movies streaming platform with a React/TypeScript frontend, built with care, attention to detail, and the mindset of “let’s do it right from the start.”
 
-Currently, two official plugins are available:
+The goal here isn’t to reinvent anything: it’s to have a solid, modern foundation that works well. Authentication, email verification, password recovery… **it’s all set up!**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It’s a project that speaks to those who’ve been in the field for a while, but also welcomes those who are starting out and want to understand how to build something clean and scalable.
 
-## Expanding the ESLint configuration
+If you like an organized frontend, clear structure, and code that’s a pleasure to maintain, take a closer look — it was built with that in mind.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+See the wiki in [react-front-streamvibe.wiki/](https://github.com/BAD-WOLF/react-front-streamvibe/wiki) for architecture, structure, features, setup, and development guide.
+ 
