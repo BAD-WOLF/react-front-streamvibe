@@ -12,12 +12,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.10",
     "@types/js-yaml": "^4.0.9",
     "@vitejs/plugin-react": "^4.6.0",
     "i18next": "^25.4.0",
     "i18next-scanner": "^4.6.0",
     "js-yaml": "^4.1.0",
+    "lucide-react": "^0.546.0",
     "motion": "^12.18.1",
     "path": "^0.12.7",
     "react": "^19.1.0",
@@ -30,6 +30,7 @@
   "devDependencies": {
     "@eslint/js": "^9.25.0",
     "@modyfi/vite-plugin-yaml": "^1.1.1",
+    "@tailwindcss/vite": "^4.1.15",
     "@types/node": "^24.0.14",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
