@@ -1,40 +1,67 @@
-import type {Movie} from "@content/types/movie.ts";
-import {preloadVideo} from "@content/utils/videoUtils.ts";
-import {motion} from "framer-motion";
-import type {FC, ReactElement, RefObject} from "react";
-import {useEffect, useRef} from "react";
+import {
+    movieCardAnimations, movieCardClasses, movieCardStyles, movieCardTransitions
+} from '@shared/styles/ts/home/MovieCardStyles.ts';
+import {motion, useInView} from 'motion/react';
+import {type ReactElement, type RefObject, useRef, useState} from 'react';
 
-export const MovieCard: FC<{ movie: Movie }> = ({movie}: { movie: Movie }): ReactElement => {
-    const videoRef: RefObject<HTMLVideoElement | null> = useRef<HTMLVideoElement>(null);
-
-    useEffect((): void => {
-        // Preloads trailer
-        preloadVideo(movie.trailer);
-    }, [movie.trailer]);
+export function MovieCard({title, index}: {
+    title: string;
+    index: number;
+}): ReactElement {
+    const [isHovered, setIsHovered]: [boolean, (value: (((prevState: boolean) => boolean) | boolean)) => void] = useState(false);
+    const cardRef: RefObject<null> = useRef(null);
+    const isInView: boolean = useInView(cardRef, {once: true, margin: "-50px"});
 
     return (
-        <motion.div whileHover={{scale: 1.05}}
-                    className="relative rounded-3xl overflow-hidden shadow-2xl border border-[#5B21B6]/40 group">
-            <video
-                ref={videoRef}
-                src={movie.trailer}
-                muted
-                autoPlay
-                loop
-                playsInline
-                className="
-                    absolute w-full h-full object-cover z-0 group-hover:opacity-100
-                    opacity-0 transition duration-700"
+        <motion.div
+            ref={cardRef}
+            className={movieCardClasses.container}
+            style={{
+                minWidth: movieCardStyles.minWidth,
+                width: movieCardStyles.width,
+                height: movieCardStyles.height,
+                background: movieCardStyles.background,
+                boxShadow: movieCardStyles.boxShadow,
+                margin: movieCardStyles.margin,
+                padding: movieCardStyles.padding,
+            }}
+            onMouseEnter={(): void => setIsHovered(true)}
+            onMouseLeave={(): void => setIsHovered(false)}
+            onTouchStart={(): void => setIsHovered(true)}
+            onTouchEnd={(): void => setIsHovered(false)}
+            whileHover={movieCardAnimations.hover}
+            whileTap={movieCardAnimations.tap}
+            initial={movieCardAnimations.initial}
+            animate={isInView ? movieCardAnimations.animate : movieCardAnimations.notInView}
+            transition={{
+                duration: movieCardTransitions.main.duration,
+                delay: index * movieCardTransitions.main.delay,
+                ease: [0.22, 1, 0.36, 1]
+            }}
+        >
+            {/* Card Background Gradient */}
+            <div
+                className={movieCardClasses.backgroundOverlay}
+                style={{
+                    background: movieCardStyles.backgroundOverlay,
+                }}
             />
-            <img
-                src={movie.poster}
-                alt={movie.title}
-                className="object-cover w-full h-96 opacity-90 group-hover:opacity-0 transition duration-500"
-            />
-            <div className="absolute bottom-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent z-10">
-                <h3 className="text-xl font-bold text-white drop-shadow-md">{movie.title}</h3>
-                <p className="text-sm text-white/70">{movie.description}</p>
+
+            {/* Content */}
+            <div className={movieCardClasses.content}>
+                <p className={movieCardClasses.title} style={{fontSize: movieCardStyles.titleFontSize}}>{title}</p>
             </div>
+
+            {/* Hover Overlay */}
+            <motion.div
+                className={movieCardClasses.hoverOverlay}
+                initial={{opacity: 0}}
+                animate={{opacity: isHovered ? 1 : 0}}
+                transition={movieCardTransitions.hover}
+            >
+                <span className={movieCardClasses.hoverText} style={{fontSize: movieCardStyles.hoverTextFontSize}}>View Details</span>
+            </motion.div>
         </motion.div>
     );
-};
+}
+  

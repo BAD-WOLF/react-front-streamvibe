@@ -3,7 +3,7 @@ import {Search} from 'lucide-react';
 import {AnimatePresence, motion} from 'motion/react';
 import {type ReactElement, type RefObject, useEffect, useRef, useState} from 'react';
 import {ImageWithFallback} from './figma/ImageWithFallback.tsx';
-import {headerClasses, headerAnimations, headerTransitions} from '../../shared/styles/ts/layout/HeaderStyles.ts';
+import {headerClasses, headerAnimations, headerTransitions} from '@shared/styles/ts/layout/HeaderStyles.ts';
 
 export function Header(): ReactElement {
     const [scrolled, setScrolled]: [boolean, (value: (((prevState: boolean) => boolean) | boolean)) => void] = useState(false);
