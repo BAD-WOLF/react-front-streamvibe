@@ -1,27 +1,45 @@
+import {CategorySection} from '@content/home/components/CategorySection.tsx';
+import {NetflixHeroBanner} from '@content/home/components/NetflixHeroBanner.tsx';
+import {getMovieListService} from '@content/services/movieList.service.ts';
+import {Footer} from '@layout/Footer.tsx';
+import {Header} from '@layout/Header.tsx';
+import {homeClasses, homeStyles} from '@shared/styles/ts/home/HomeStyles.ts';
+import type {Movie} from '@shared/types/Movie.ts'
+import {t} from 'i18next';
 import type {FC, ReactElement} from 'react';
-import {useEffect, useState} from "react";
-import {Header} from "@layout/Header.tsx";
-import {Footer} from "@layout/Footer.tsx";
-import {FeaturedMovies} from "@content/home/components/FeaturedMovies.tsx";
-import {CategoriesSection} from "@content/home/components/CategoriesSection.tsx";
-import {getMovieList} from "@content/services/movieList.service.ts";
-import type {Movie} from "@content/types/movie.ts";
 
 export const Home: FC = (): ReactElement => {
-    const [movies, setMovies] = useState<Movie[]>([]);
-
-    useEffect((): void => {
-        const list: Array<Movie> = getMovieList();
-        setMovies(list);
-    }, []);
+    const featuredMovies: Movie[] = getMovieListService();
 
     return (
         <div
-            className="min-h-screen bg-gradient-to-br from-[#0E7490] via-[#1E3A5F] to-[#3D3D3D] text-white font-sans overflow-x-hidden">
+            className={homeClasses.container}
+            style={{
+                background: homeStyles.background,
+            }}
+        >
+            {/* Header */}
             <Header/>
-            <FeaturedMovies movies={movies}/>
-            <CategoriesSection/>
+
+            {/* Netflix-Style Hero Banner */}
+            <NetflixHeroBanner movies={featuredMovies}/>
+
+            {/* Category Sections - Sem espaçamento desnecessário */}
+            <div className={homeClasses.categorySection}>
+                <CategorySection title={t('Trending Now')} movieCount={10}/>
+                <CategorySection title={t('New Releases')} movieCount={10}/>
+                <CategorySection title={t('Sci-Fi Realms')} movieCount={10}/>
+                <CategorySection title={t('Action & Thriller')} movieCount={10}/>
+                <CategorySection title={t('Drama & Romance')} movieCount={10}/>
+                <CategorySection title={t('Horror & Mystery')} movieCount={10}/>
+                <CategorySection title={t('Comedy & Adventure')} movieCount={10}/>
+                <CategorySection title={t('Documentaries')} movieCount={10}/>
+                <CategorySection title={t('Anime & Animation')} movieCount={10}/>
+                <CategorySection title={t('Classic Cinema')} movieCount={10}/>
+            </div>
+
+            {/* Footer */}
             <Footer/>
         </div>
     );
-};
+}

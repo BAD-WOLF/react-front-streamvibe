@@ -1,11 +1,11 @@
 // noinspection TypeScriptExplicitMemberType
 
 export const footerClasses = {
-    container: "bg-[#0E7490]/10 border-t border-[#3D3D3D]/60 py-8 md:py-12 px-4 md:px-6",
+    container: "bg-[#0E7490]/10 border-t border-[#3D3D3D]/60 py-4 md:py-6 px-4 md:px-6",
     innerContainer: "max-w-7xl mx-auto",
 
     // Logo
-    logoContainer: "flex justify-center mb-6 md:mb-8",
+    logoContainer: "flex justify-center mb-2 md:mb-4",
     logoCircle: "w-12 h-12 md:w-16 md:h-16 rounded-full border-2 md:border-4 border-[#9B111E] flex items-center justify-center",
     logoText: "text-white text-sm md:text-base",
 
