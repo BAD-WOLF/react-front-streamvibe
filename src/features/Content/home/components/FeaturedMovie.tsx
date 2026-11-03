@@ -1,20 +1,24 @@
 import {
     featuredMovieAnimations, featuredMovieClasses, featuredMovieTransitions
 } from '@shared/styles/ts/home/FeaturedMovieStyles.ts';
-import type {Movie} from '@shared/types/Movie.ts';
+import type {MovieListItem} from '@shared/types/movie/index.ts';
 import {motion} from 'motion/react';
-import {type ReactElement, useState} from 'react';
+import {type Dispatch, type ReactElement, type SetStateAction, useState} from 'react';
+import {Link} from 'react-router-dom';
+import {hasText} from '@shared/utils/guards.ts';
 
-export function FeaturedMovie({title, description, poster_path, videoUrl, index}: Movie): ReactElement {
-    const [isHovered, setIsHovered]: [boolean, (value: (((prevState: boolean) => boolean) | boolean)) => void] = useState(false);
+// NOTA (nov/2026): o card de destaque passou a receber um filme da API. A
+// camada de vídeo (mp4) saiu: o TMDB só tem vídeos do YouTube, que abrem no
+// VideoModal da página do filme.
+export function FeaturedMovie({movie, index, to}: { movie: MovieListItem; index: number; to: string }): ReactElement {
+    const [isHovered, setIsHovered]: [boolean, Dispatch<SetStateAction<boolean>>] = useState<boolean>(false);
+    const image: string | null = movie.backdrop_url ?? movie.poster_url;
 
     return (
         <motion.div
             className={featuredMovieClasses.container}
             onMouseEnter={(): void => setIsHovered(true)}
             onMouseLeave={(): void => setIsHovered(false)}
-            onTouchStart={(): void => setIsHovered(true)}
-            onTouchEnd={(): void => setIsHovered(false)}
             whileHover={featuredMovieAnimations.hover}
             whileTap={featuredMovieAnimations.tap}
             initial={featuredMovieAnimations.initial}
@@ -23,42 +27,25 @@ export function FeaturedMovie({title, description, poster_path, videoUrl, index}
                 duration: featuredMovieTransitions.main.duration, delay: index * featuredMovieTransitions.main.delay
             }}
         >
-            {/* Video Layer */}
-            {videoUrl && (
-                <motion.video
-                    src={videoUrl}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className={featuredMovieClasses.video}
-                    initial={featuredMovieAnimations.videoInitial}
-                    animate={{
-                        opacity: isHovered ? featuredMovieAnimations.videoHovered.opacity :
-                            featuredMovieAnimations.videoInitial.opacity
-                    }}
-                    transition={featuredMovieTransitions.video}
-                />
-            )}
+            <Link to={to} className="block w-full h-full" aria-label={movie.title}>
+                {/* Poster Layer */}
+                {hasText(image) && (
+                    <motion.img
+                        src={image}
+                        alt={movie.title}
+                        className={featuredMovieClasses.poster}
+                        initial={featuredMovieAnimations.posterInitial}
+                        animate={{opacity: isHovered ? 1 : featuredMovieAnimations.posterInitial.opacity}}
+                        transition={featuredMovieTransitions.poster}
+                    />
+                )}
 
-            {/* Poster Layer */}
-            <motion.img
-                src={poster_path}
-                alt={title}
-                className={featuredMovieClasses.poster}
-                initial={featuredMovieAnimations.posterInitial}
-                animate={{
-                    opacity: isHovered ? featuredMovieAnimations.posterHovered.opacity :
-                        featuredMovieAnimations.posterInitial.opacity
-                }}
-                transition={featuredMovieTransitions.poster}
-            />
-
-            {/* Bottom Overlay with Text */}
-            <div className={featuredMovieClasses.overlay}>
-                <h3 className={featuredMovieClasses.title}>{title}</h3>
-                <p className={featuredMovieClasses.description}>{description}</p>
-            </div>
+                {/* Bottom Overlay with Text */}
+                <div className={featuredMovieClasses.overlay}>
+                    <h3 className={featuredMovieClasses.title}>{movie.title}</h3>
+                    <p className={featuredMovieClasses.description}>{movie.formatted_overview ?? movie.overview}</p>
+                </div>
+            </Link>
         </motion.div>
     );
 }

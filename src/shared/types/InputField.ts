@@ -7,5 +7,6 @@ export type InputField = {
     value: string;
     setter: Dispatch<SetStateAction<string>> | ((value: string) => void);
     icon: ReactElement;
-    error?: string;
+    error?: string | undefined;
+    autoComplete?: string | undefined;
 }

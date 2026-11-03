@@ -8,7 +8,9 @@
     "i18n:extract": "node scripts/i18n-extract.js",
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "typecheck": "tsc -b",
+    "lint": "eslint . --max-warnings=0",
+    "verify": "yarn typecheck && yarn lint",
     "preview": "vite preview"
   },
   "dependencies": {

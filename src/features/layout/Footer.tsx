@@ -1,16 +1,29 @@
-import {t} from 'i18next';
+import {ApiStatus} from '@layout/ApiStatus.tsx';
+import type {Locale} from '@i18n/locales.ts';
+import {apiDocsUrl} from '@shared/api/apiConfig.ts';
+import {useLocale} from '@shared/hooks/useLocale.ts';
+import {footerAnimations, footerClasses, footerStyles} from '@shared/styles/ts/layout/FooterStyles.ts';
 import {motion} from 'motion/react';
-import type {ReactElement} from 'react'
-import {footerClasses, footerStyles, footerAnimations} from '../../shared/styles/ts/layout/FooterStyles.ts';
+import type {ReactElement} from 'react';
+import {useTranslation} from 'react-i18next';
+import type {Translation} from '@i18n/translation.ts';
 
+type FooterLink = {
+    label: string;
+    href: string;
+};
+
+// NOTA (nov/2026): os links "#" (Privacy, Terms, Support, Contact, License)
+// saíram: não havia páginas para eles. Ficaram os que levam a algum lugar.
 export function Footer(): ReactElement {
-    const links: string[] = [
-        t('Privacy'),
-        t('Terms'),
-        t('Support'),
-        t('Contact'),
-        t('License'),
-        t('API')
+    const {t}: Translation = useTranslation();
+    const locale: Locale = useLocale();
+
+    const links: FooterLink[] = [
+        {label: t('API documentation'), href: apiDocsUrl(locale)},
+        {label: t('Backend on GitHub'), href: 'https://github.com/BAD-WOLF/StreamVibe'},
+        {label: t('Frontend on GitHub'), href: 'https://github.com/BAD-WOLF/react-front-streamvibe'},
+        {label: 'TMDB', href: 'https://www.themoviedb.org/'},
     ];
 
     return (
@@ -25,11 +38,7 @@ export function Footer(): ReactElement {
                             background: footerStyles.logoBackground,
                         }}
                         animate={footerAnimations.logoRotation}
-                        transition={{
-                            duration: 25,
-                            repeat: Infinity,
-                            ease: 'linear'
-                        }}
+                        transition={footerAnimations.logoTransition}
                     >
                         <span className={footerClasses.logoText}>SV</span>
                     </motion.div>
@@ -37,17 +46,21 @@ export function Footer(): ReactElement {
 
                 {/* Links */}
                 <div className={footerClasses.linksContainer}>
-                    {links.map((link: string): ReactElement => (
+                    {links.map((link: FooterLink): ReactElement => (
                         <motion.a
-                            key={link}
-                            href="#"
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
                             className={footerClasses.link}
                             whileTap={footerAnimations.linkTap}
                         >
-                            {link}
+                            {link.label}
                         </motion.a>
                     ))}
                 </div>
+
+                <ApiStatus/>
             </div>
         </footer>
     );

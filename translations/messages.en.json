@@ -1,0 +1,1409 @@
+{
+  "Page": {
+    "not": {
+      "found": "Page not found"
+    },
+    "{{page}}": {
+      "of": {
+        "{{total}}": "Page {{page}} of {{total}}"
+      }
+    }
+  },
+  "This": {
+    "page": {
+      "does": {
+        "not": {
+          "exist.": "This page does not exist."
+        }
+      }
+    },
+    "link": {
+      "works": {
+        "until": {
+          "{{date}}.": "This link works until {{date}}."
+        }
+      },
+      "is": {
+        "invalid": {
+          "or": {
+            "was": {
+              "already": {
+                "used.": "This link is invalid or was already used."
+              }
+            },
+            "expired.": {
+              "Ask": {
+                "for": {
+                  "a": {
+                    "new": {
+                      "one": {
+                        "below.": "This link is invalid or expired. Ask for a new one below."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "has": {
+        "expired.": "This link has expired."
+      }
+    },
+    "account": {
+      "has": {
+        "already": {
+          "confirmed": {
+            "its": {
+              "email.": {
+                "You": {
+                  "can": {
+                    "log": {
+                      "in.": "This account has already confirmed its email. You can log in."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "confirmation": {
+      "link": {
+        "is": {
+          "incomplete.": {
+            "Ask": {
+              "for": {
+                "a": {
+                  "new": {
+                    "one": {
+                      "below.": "This confirmation link is incomplete. Ask for a new one below."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "email": {
+      "was": {
+        "already": {
+          "confirmed.": "This email was already confirmed."
+        }
+      }
+    },
+    "week": "This week"
+  },
+  "Go": {
+    "to": {
+      "the": {
+        "home": {
+          "page": "Go to the home page"
+        }
+      },
+      "slide": "Go to slide"
+    }
+  },
+  "Change": {
+    "password": "Change password"
+  },
+  "We": {
+    "will": {
+      "email": {
+        "you": {
+          "a": {
+            "link": {
+              "to": {
+                "set": {
+                  "a": {
+                    "new": {
+                      "password.": {
+                        "After": {
+                          "the": {
+                            "change,": {
+                              "every": {
+                                "session": {
+                                  "of": {
+                                    "your": {
+                                      "account": {
+                                        "is": {
+                                          "closed.": "We will email you a link to set a new password. After the change, every session of your account is closed."
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sent": {
+      "a": {
+        "confirmation": {
+          "link": {
+            "to": {
+              "{{email}}.": {
+                "Open": {
+                  "it": {
+                    "to": {
+                      "activate": {
+                        "your": {
+                          "account.": "We sent a confirmation link to {{email}}. Open it to activate your account."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "new": {
+          "confirmation": {
+            "email.": "We sent a new confirmation email."
+          }
+        }
+      },
+      "the": {
+        "link": {
+          "to": {
+            "{{email}}.": "We sent the link to {{email}}."
+          }
+        }
+      }
+    }
+  },
+  "Sending...": "Sending...",
+  "Send": {
+    "me": {
+      "the": {
+        "link": "Send me the link"
+      }
+    },
+    "password": {
+      "reset": {
+        "email": "Send password reset email"
+      }
+    },
+    "again": {
+      "in": {
+        "{{seconds}}s": "Send again in {{seconds}}s"
+      }
+    }
+  },
+  "Type": {
+    "a": {
+      "valid": {
+        "account": {
+          "id": {
+            "(a": {
+              "positive": {
+                "whole": {
+                  "number).": "Type a valid account id (a positive whole number)."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "the": {
+      "email": {
+        "of": {
+          "your": {
+            "account": {
+              "and": {
+                "we": {
+                  "will": {
+                    "send": {
+                      "you": {
+                        "a": {
+                          "link": {
+                            "to": {
+                              "set": {
+                                "a": {
+                                  "new": {
+                                    "password.": "Type the email of your account and we will send you a link to set a new password."
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "something": {
+      "to": {
+        "search.": "Type something to search."
+      }
+    }
+  },
+  "Active": {
+    "password": {
+      "reset": {
+        "requests": "Active password reset requests"
+      }
+    }
+  },
+  "As": {
+    "an": {
+      "administrator,": {
+        "you": {
+          "can": {
+            "look": {
+              "up": {
+                "the": {
+                  "requests": {
+                    "of": {
+                      "any": {
+                        "account": {
+                          "by": {
+                            "its": {
+                              "id.": "As an administrator, you can look up the requests of any account by its id."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "You": {
+    "can": {
+      "look": {
+        "up": {
+          "the": {
+            "requests": {
+              "of": {
+                "your": {
+                  "own": {
+                    "account.": {
+                      "The": {
+                        "account": {
+                          "id": {
+                            "is": {
+                              "filled": {
+                                "in": {
+                                  "when": {
+                                    "you": {
+                                      "registered": {
+                                        "on": {
+                                          "this": {
+                                            "device.": "You can look up the requests of your own account. The account id is filled in when you registered on this device."
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "now": {
+        "log": {
+          "in": {
+            "with": {
+              "your": {
+                "new": {
+                  "password.": "You can now log in with your new password."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "will": {
+      "be": {
+        "redirected": {
+          "shortly...": "You will be redirected shortly..."
+        }
+      }
+    },
+    "must": {
+      "agree": {
+        "to": {
+          "the": {
+            "terms": {
+              "of": {
+                "use.": "You must agree to the terms of use."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Account": {
+    "id": "Account id",
+    "{{id}}": {
+      "has": {
+        "confirmed": {
+          "its": {
+            "email.": "Account {{id}} has confirmed its email."
+          }
+        },
+        "not": {
+          "confirmed": {
+            "its": {
+              "email": {
+                "yet.": "Account {{id}} has not confirmed its email yet."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Look": {
+    "up": "Look up"
+  },
+  "No": {
+    "active": {
+      "requests": {
+        "for": {
+          "account": {
+            "{{id}}.": "No active requests for account {{id}}."
+          }
+        }
+      }
+    },
+    "images.": "No images.",
+    "videos": {
+      "in": {
+        "this": {
+          "language.": "No videos in this language."
+        }
+      }
+    },
+    "movies": {
+      "found.": "No movies found."
+    },
+    "credits": {
+      "here.": "No credits here."
+    },
+    "biography": {
+      "in": {
+        "this": {
+          "language.": "No biography in this language."
+        }
+      }
+    }
+  },
+  "Requested": {
+    "at": "Requested at"
+  },
+  "Expires": {
+    "at": "Expires at"
+  },
+  "Session": "Session",
+  "Email": {
+    "address": "Email address",
+    "verification": {
+      "of": {
+        "an": {
+          "account": "Email verification of an account"
+        }
+      }
+    },
+    "confirmed!": {
+      "You": {
+        "can": {
+          "log": {
+            "in": {
+              "now.": "Email confirmed! You can log in now."
+            }
+          }
+        }
+      },
+      "Your": {
+        "account": {
+          "is": {
+            "ready.": "Email confirmed! Your account is ready."
+          }
+        }
+      }
+    },
+    "is": {
+      "required.": "Email is required."
+    }
+  },
+  "Roles": "Roles",
+  "Access": {
+    "token": {
+      "valid": {
+        "until": "Access token valid until"
+      }
+    }
+  },
+  "The": {
+    "access": {
+      "token": {
+        "lasts": {
+          "one": {
+            "hour": {
+              "and": {
+                "is": {
+                  "renewed": {
+                    "automatically": {
+                      "while": {
+                        "your": {
+                          "session": {
+                            "is": {
+                              "open": {
+                                "(up": {
+                                  "to": {
+                                    "30": {
+                                      "days).": "The access token lasts one hour and is renewed automatically while your session is open (up to 30 days)."
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "link": {
+      "is": {
+        "valid.": {
+          "Confirm": {
+            "your": {
+              "email": {
+                "to": {
+                  "activate": {
+                    "your": {
+                      "account.": "The link is valid. Confirm your email to activate your account."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "download": {
+      "failed.": {
+        "Please": {
+          "try": {
+            "again.": "The download failed. Please try again."
+          }
+        }
+      }
+    },
+    "search": {
+      "can": {
+        "have": {
+          "up": {
+            "to": {
+              "255": {
+                "characters.": "The search can have up to 255 characters."
+              }
+            }
+          }
+        }
+      }
+    },
+    "server": {
+      "is": {
+        "unavailable": {
+          "right": {
+            "now.": {
+              "Please": {
+                "try": {
+                  "again": {
+                    "later.": "The server is unavailable right now. Please try again later."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Log": {
+    "out": "Log out",
+    "In": "Log In",
+    "in": "Log in"
+  },
+  "Check": {
+    "status": "Check status",
+    "your": {
+      "email": "Check your email"
+    }
+  },
+  "My": {
+    "account": "My account"
+  },
+  "Illustration": "Illustration",
+  "Tell": {
+    "me": {
+      "your": {
+        "password": "Tell me your password"
+      }
+    }
+  },
+  "Confirm": {
+    "Password": "Confirm Password",
+    "new": {
+      "password": "Confirm new password"
+    },
+    "your": {
+      "email": "Confirm your email"
+    },
+    "my": {
+      "email": "Confirm my email"
+    }
+  },
+  "I": {
+    "agree": {
+      "to": {
+        "the": {
+          "terms": {
+            "of": {
+              "use": {
+                "and": {
+                  "the": {
+                    "privacy": {
+                      "policy.": "I agree to the terms of use and the privacy policy."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "already": {
+      "confirmed,": {
+        "log": {
+          "in": "I already confirmed, log in"
+        }
+      }
+    },
+    "did": {
+      "not": {
+        "ask": {
+          "for": {
+            "this:": {
+              "cancel": {
+                "the": {
+                  "link": "I did not ask for this: cancel the link"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Please": {
+    "wait...": "Please wait..."
+  },
+  "Register": "Register",
+  "Forgot": {
+    "your": {
+      "password?": "Forgot your password?"
+    }
+  },
+  "Didn't": {
+    "get": {
+      "the": {
+        "confirmation": {
+          "email?": "Didn't get the confirmation email?"
+        }
+      }
+    }
+  },
+  "Login": {
+    "successful!": "Login successful!"
+  },
+  "Your": {
+    "account": {
+      "was": {
+        "created,": {
+          "but": {
+            "the": {
+              "confirmation": {
+                "email": {
+                  "could": {
+                    "not": {
+                      "be": {
+                        "sent.": {
+                          "Try": {
+                            "sending": {
+                              "it": {
+                                "again.": "Your account was created, but the confirmation email could not be sent. Try sending it again."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "email": "Your email",
+    "password": {
+      "has": {
+        "been": {
+          "successfully": {
+            "changed!": "Your password has been successfully changed!"
+          }
+        }
+      }
+    },
+    "session": {
+      "has": {
+        "expired.": {
+          "Please": {
+            "log": {
+              "in": {
+                "again.": "Your session has expired. Please log in again."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Waiting": {
+    "for": {
+      "the": {
+        "confirmation...": "Waiting for the confirmation..."
+      }
+    }
+  },
+  "Coming": {
+    "soon": "Coming soon"
+  },
+  "Continue": {
+    "with": "Continue with"
+  },
+  "Doesn't": {
+    "have": {
+      "an": {
+        "account?": "Doesn't have an account?"
+      }
+    }
+  },
+  "Already": {
+    "have": {
+      "an": {
+        "account?": "Already have an account?"
+      }
+    }
+  },
+  "Sign": {
+    "up": "Sign up"
+  },
+  "Password": {
+    "is": {
+      "required.": "Password is required.",
+      "too": {
+        "weak:": {
+          "make": {
+            "it": {
+              "longer": {
+                "or": {
+                  "mix": {
+                    "upper": {
+                      "and": {
+                        "lower": {
+                          "case": {
+                            "letters,": {
+                              "numbers": {
+                                "and": {
+                                  "symbols.": "Password is too weak: make it longer or mix upper and lower case letters, numbers and symbols."
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "must": {
+      "be": {
+        "at": {
+          "least": {
+            "{{count}}": {
+              "characters": {
+                "long._one": "Password must be at least {{count}} character long.",
+                "long._other": "Password must be at least {{count}} characters long."
+              }
+            }
+          }
+        }
+      }
+    },
+    "cannot": {
+      "be": {
+        "longer": {
+          "than": {
+            "{{count}}": {
+              "characters._one": "Password cannot be longer than {{count}} character.",
+              "characters._other": "Password cannot be longer than {{count}} characters."
+            }
+          }
+        }
+      }
+    }
+  },
+  "Passwords": {
+    "do": {
+      "not": {
+        "match.": "Passwords do not match."
+      }
+    }
+  },
+  "For": {
+    "your": {
+      "safety,": {
+        "every": {
+          "session": {
+            "of": {
+              "your": {
+                "account": {
+                  "was": {
+                    "closed;": {
+                      "log": {
+                        "in": {
+                          "again": {
+                            "on": {
+                              "each": {
+                                "device.": "For your safety, every session of your account was closed; log in again on each device."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "It": {
+    "works": {
+      "until": {
+        "{{date}}.": "It works until {{date}}."
+      }
+    }
+  },
+  "A": {
+    "link": {
+      "was": {
+        "already": {
+          "sent": {
+            "and": {
+              "still": {
+                "works": {
+                  "until": {
+                    "{{date}}.": {
+                      "Check": {
+                        "your": {
+                          "inbox": {
+                            "and": {
+                              "the": {
+                                "spam": {
+                                  "folder.": "A link was already sent and still works until {{date}}. Check your inbox and the spam folder."
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "If": {
+    "there": {
+      "is": {
+        "an": {
+          "account": {
+            "with": {
+              "this": {
+                "email,": {
+                  "you": {
+                    "will": {
+                      "receive": {
+                        "a": {
+                          "link": {
+                            "to": {
+                              "set": {
+                                "a": {
+                                  "new": {
+                                    "password.": "If there is an account with this email, you will receive a link to set a new password."
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "an": {
+      "account": {
+        "uses": {
+          "this": {
+            "email,": {
+              "a": {
+                "new": {
+                  "confirmation": {
+                    "link": {
+                      "is": {
+                        "on": {
+                          "its": {
+                            "way.": "If an account uses this email, a new confirmation link is on its way."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "New": {
+    "password": "New password"
+  },
+  "Resetting...": "Resetting...",
+  "Reset": {
+    "password": "Reset password"
+  },
+  "Done:": {
+    "the": {
+      "link": {
+        "no": {
+          "longer": {
+            "works.": {
+              "Your": {
+                "password": {
+                  "was": {
+                    "not": {
+                      "changed.": "Done: the link no longer works. Your password was not changed."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Ask": {
+    "for": {
+      "a": {
+        "new": {
+          "link": "Ask for a new link"
+        }
+      }
+    }
+  },
+  "Validating": {
+    "token…": "Validating token…"
+  },
+  "Back": {
+    "to": {
+      "login": "Back to login"
+    }
+  },
+  "Invalid": {
+    "email": {
+      "format.": "Invalid email format."
+    }
+  },
+  "Resend": {
+    "the": {
+      "confirmation": {
+        "email": "Resend the confirmation email"
+      }
+    }
+  },
+  "Checking": {
+    "the": {
+      "link...": "Checking the link...",
+      "API...": "Checking the API..."
+    }
+  },
+  "Confirming...": "Confirming...",
+  "See": {
+    "all": "See all"
+  },
+  "Nothing": {
+    "here": {
+      "yet.": "Nothing here yet."
+    }
+  },
+  "Loading...": "Loading...",
+  "Load": {
+    "more": "Load more"
+  },
+  "View": {
+    "Details": "View Details"
+  },
+  "NOW": {
+    "PLAYING": "NOW PLAYING"
+  },
+  "Turn": {
+    "sound": {
+      "on": "Turn sound on",
+      "off": "Turn sound off"
+    }
+  },
+  "Watch": {
+    "trailer": "Watch trailer"
+  },
+  "More": {
+    "info": "More info",
+    "filters": "More filters"
+  },
+  "Home": "Home",
+  "Trending": {
+    "Now": "Trending Now",
+    "period": "Trending period",
+    "movies": "Trending movies"
+  },
+  "Popular": "Popular",
+  "Top": {
+    "Rated": "Top Rated"
+  },
+  "Now": {
+    "Playing": "Now Playing"
+  },
+  "Show": {
+    "more": {
+      "images": "Show more images"
+    },
+    "less": "Show less",
+    "password": "Show password"
+  },
+  "Previous": "Previous",
+  "Next": "Next",
+  "Size": "Size",
+  "Re-encode": {
+    "JPEG": {
+      "quality": "Re-encode JPEG quality"
+    }
+  },
+  "Quality": "Quality",
+  "Only": {
+    "JPEG": {
+      "images": {
+        "are": {
+          "re-encoded.": "Only JPEG images are re-encoded."
+        }
+      }
+    },
+    "images": {
+      "in": {
+        "my": {
+          "language": "Only images in my language"
+        }
+      }
+    }
+  },
+  "Dimensions": "Dimensions",
+  "File": {
+    "type": "File type",
+    "size": "File size"
+  },
+  "Extension": "Extension",
+  "Language": "Language",
+  "Download": {
+    "this": {
+      "size": "Download this size"
+    },
+    "original": "Download original"
+  },
+  "Open": {
+    "on": {
+      "the": {
+        "image": {
+          "CDN": "Open on the image CDN"
+        }
+      }
+    }
+  },
+  "Directed": {
+    "by": "Directed by"
+  },
+  "Screenplay": "Screenplay",
+  "Written": {
+    "by": "Written by"
+  },
+  "Story": {
+    "by": "Story by"
+  },
+  "Based": {
+    "on": {
+      "the": {
+        "novel": {
+          "by": "Based on the novel by"
+        }
+      }
+    }
+  },
+  "Produced": {
+    "by": "Produced by"
+  },
+  "Music": {
+    "by": "Music by"
+  },
+  "Cinematography": "Cinematography",
+  "Edited": {
+    "by": "Edited by"
+  },
+  "Backdrops": "Backdrops",
+  "Posters": "Posters",
+  "Logos": "Logos",
+  "Part": {
+    "of": {
+      "the": {
+        "collection": "Part of the collection"
+      }
+    }
+  },
+  "Status": "Status",
+  "Release": {
+    "date": "Release date",
+    "region": {
+      "(e.g.": {
+        "BR)": "Release region (e.g. BR)"
+      }
+    }
+  },
+  "Runtime": "Runtime",
+  "Original": {
+    "language": "Original language"
+  },
+  "Spoken": {
+    "languages": "Spoken languages"
+  },
+  "Production": {
+    "countries": "Production countries"
+  },
+  "Country": {
+    "of": {
+      "origin": "Country of origin"
+    }
+  },
+  "Budget": "Budget",
+  "Box": {
+    "office": "Box office"
+  },
+  "Votes": "Votes",
+  "{{count}}": {
+    "votes_one": "{{count}} vote",
+    "votes_other": "{{count}} votes",
+    "movies_one": "{{count}} movie",
+    "movies_other": "{{count}} movies",
+    "results": {
+      "for": {
+        "\"{{query}}\"_one": "{{count}} result for \"{{query}}\"",
+        "\"{{query}}\"_other": "{{count}} results for \"{{query}}\""
+      }
+    }
+  },
+  "Official": {
+    "site": "Official site",
+    "video": "Official video"
+  },
+  "Today": "Today",
+  "Trailers": "Trailers",
+  "Teasers": "Teasers",
+  "Clips": "Clips",
+  "All": {
+    "videos": "All videos"
+  },
+  "About": {
+    "the": {
+      "movie": "About the movie"
+    }
+  },
+  "Cast": "Cast",
+  "Videos": "Videos",
+  "Images": "Images",
+  "Recommended": {
+    "for": {
+      "you": "Recommended for you"
+    }
+  },
+  "Similar": {
+    "movies": "Similar movies"
+  },
+  "Search": {
+    "results": "Search results",
+    "movies": "Search movies",
+    "now": "Search now",
+    "TMDB": {
+      "movies": {
+        "by": {
+          "title.": "Search TMDB movies by title."
+        }
+      }
+    },
+    "movies...": "Search movies..."
+  },
+  "Use": {
+    "a": {
+      "year": {
+        "between": {
+          "{{min}}": {
+            "and": {
+              "{{max}}.": "Use a year between {{min}} and {{max}}."
+            }
+          }
+        }
+      }
+    },
+    "the": {
+      "two-letter": {
+        "country": {
+          "code": {
+            "(e.g.": {
+              "BR).": "Use the two-letter country code (e.g. BR)."
+            }
+          }
+        }
+      }
+    }
+  },
+  "Movie": {
+    "title...": "Movie title..."
+  },
+  "Hide": {
+    "filters": "Hide filters",
+    "password": "Hide password"
+  },
+  "Year": {
+    "(any": {
+      "release)": "Year (any release)"
+    },
+    "of": {
+      "the": {
+        "main": {
+          "release": "Year of the main release"
+        }
+      }
+    }
+  },
+  "Include": {
+    "adult": {
+      "titles": "Include adult titles"
+    }
+  },
+  "episodes": "episodes",
+  "Movies": {
+    "(acting)": "Movies (acting)",
+    "(crew)": "Movies (crew)"
+  },
+  "TV": {
+    "(acting)": "TV (acting)",
+    "(crew)": "TV (crew)"
+  },
+  "{{age}}": {
+    "years": {
+      "old": "{{age}} years old"
+    }
+  },
+  "aged": {
+    "{{age}}": "aged {{age}}"
+  },
+  "Known": {
+    "for": "Known for"
+  },
+  "Born": "Born",
+  "Place": {
+    "of": {
+      "birth": "Place of birth"
+    }
+  },
+  "Died": "Died",
+  "Also": {
+    "known": {
+      "as": "Also known as"
+    }
+  },
+  "Read": {
+    "the": {
+      "full": {
+        "biography": "Read the full biography"
+      }
+    }
+  },
+  "Credits": "Credits",
+  "Photos": "Photos",
+  "API": {
+    "online": "API online",
+    "offline": "API offline",
+    "documentation": "API documentation"
+  },
+  "Backend": {
+    "on": {
+      "GitHub": "Backend on GitHub"
+    }
+  },
+  "Frontend": {
+    "on": {
+      "GitHub": "Frontend on GitHub"
+    }
+  },
+  "StreamVibe": {
+    "Logo": "StreamVibe Logo"
+  },
+  "Menu": "Menu",
+  "Not": {
+    "found.": "Not found."
+  },
+  "Too": {
+    "many": {
+      "requests.": {
+        "Please": {
+          "wait": {
+            "a": {
+              "moment": {
+                "and": {
+                  "try": {
+                    "again.": "Too many requests. Please wait a moment and try again."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Unexpected": {
+    "error.": {
+      "Please": {
+        "try": {
+          "again": {
+            "later.": "Unexpected error. Please try again later."
+          }
+        }
+      }
+    }
+  },
+  "Could": {
+    "not": {
+      "reach": {
+        "the": {
+          "server.": {
+            "Check": {
+              "your": {
+                "connection": {
+                  "and": {
+                    "try": {
+                      "again.": "Could not reach the server. Check your connection and try again."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Very": {
+    "weak": "Very weak",
+    "strong": "Very strong"
+  },
+  "Weak": "Weak",
+  "Medium": "Medium",
+  "Strong": "Strong",
+  "Strength": "Strength",
+  "Try": {
+    "again": "Try again"
+  },
+  "Close": "Close",
+  "Pagination": "Pagination"
+}

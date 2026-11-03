@@ -34,5 +34,18 @@ export default defineConfig({
 
     build: {
         target: 'es2022', // garante compatibilidade com top-level await
+        rollupOptions: {
+            output: {
+                // NOTA (nov/2026): as bibliotecas em pedaços separados (o pacote
+                // único passou de 500 kB) e que o navegador guarda entre deploys.
+                manualChunks: (id: string): string | undefined => {
+                    if (!id.includes('node_modules')) return undefined;
+                    if (/react-icons|lucide-react/.test(id)) return 'icons';
+                    if (/[\\/](motion|framer-motion|motion-dom|motion-utils)[\\/]/.test(id)) return 'motion';
+                    if (/i18next/.test(id)) return 'i18n';
+                    return 'vendor';
+                },
+            },
+        },
     }
 });

@@ -1,25 +1,48 @@
+import {LocaleLayout} from "@app/LocaleLayout.tsx";
+import {NotFound} from "@app/NotFound.tsx";
+import {ProtectedRoute} from "@app/ProtectedRoute.tsx";
+import Account from "@auth/account/pages/Account.tsx";
 import Auth from "@auth/login-register/pages/Auth.tsx";
 import Repassword from '@auth/repassword/pages/Repassword.tsx';
+import VerifyEmail from "@auth/verify-email/pages/VerifyEmail.tsx";
 import {Home} from "@content/home/pages/Home.tsx";
+import {MovieDetails} from "@content/movies/pages/MovieDetails.tsx";
+import {MovieList} from "@content/movies/pages/MovieList.tsx";
+import {MovieSearch} from "@content/movies/pages/MovieSearch.tsx";
+import {PersonDetails} from "@content/person/pages/PersonDetails.tsx";
+import {preferredLocale} from "@i18n/locales.ts";
+import {ContentLayout} from "@layout/ContentLayout.tsx";
 import type {ReactElement} from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 
+// NOTA (nov/2026): o idioma deixou de ser opcional (/:_locale?): toda rota
+// fica sob /:_locale, e o LocaleLayout completa os endereços sem idioma.
+// As páginas de conteúdo usam rotas 🔒 da API, então pedem login.
 export default function AppRoutes(): ReactElement {
-    /*const location = useLocation();
-
-     const hideHeaderRoutes = ["/auth"];
-     const shouldShowHeader = !hideHeaderRoutes.includes(location.pathname);*/
-
     return (
-        <>
-            {/*{shouldShowHeader && <Header/>}*/}
-            <BrowserRouter>
-                <Routes>
-                    <Route path='/:_locale?/home' element={<Home/>}/>
-                    <Route path='/:_locale?/auth' element={<Auth/>}/>
-                    <Route path="/:_locale?/auth/repassword/:token?" element={<Repassword/>}/>
-                </Routes>
-            </BrowserRouter>
-        </>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Navigate to={`/${preferredLocale()}/home`} replace/>}/>
+                <Route path="/:_locale" element={<LocaleLayout/>}>
+                    <Route index element={<Navigate to="home" replace/>}/>
+                    <Route path="auth" element={<Auth/>}/>
+                    <Route path="auth/verify-email" element={<VerifyEmail/>}/>
+                    <Route path="auth/repassword/:token?" element={<Repassword/>}/>
+
+                    <Route element={<ProtectedRoute/>}>
+                        <Route element={<ContentLayout/>}>
+                            <Route path="home" element={<Home/>}/>
+                            <Route path="movies/list/:list" element={<MovieList/>}/>
+                            <Route path="movies/search" element={<MovieSearch/>}/>
+                            <Route path="movies/:movieId" element={<MovieDetails/>}/>
+                            <Route path="person/:personId" element={<PersonDetails/>}/>
+                            <Route path="account" element={<Account/>}/>
+                        </Route>
+                    </Route>
+
+                    <Route path="*" element={<NotFound/>}/>
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
 }

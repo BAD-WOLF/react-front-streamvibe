@@ -35,7 +35,25 @@
     "noUncheckedSideEffectImports": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strict": true
+    "strict": true,
+
+    /* NOTA (nov/2026): tipagem forte. Além do "strict", as opções do
+       @tsconfig/strictest, e o isolatedDeclarations: todo export precisa de
+       tipo explícito (retorno de função, constante, parâmetro). O resto
+       (variáveis locais, callbacks, desestruturação) o ESLint cobra
+       (typedef e explicit-function-return-type, no eslint.config.js). */
+    "isolatedDeclarations": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitOverride": true,
+    "noImplicitThis": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "exactOptionalPropertyTypes": true,
+    "useUnknownInCatchVariables": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "src"

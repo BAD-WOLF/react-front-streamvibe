@@ -1,0 +1,29 @@
+# NOTA (nov/2026): a mesma checagem da IDE em todo PR para develop e master:
+# código sem tipo, com erro de tipo ou com aviso do ESLint não passa.
+name: Check
+
+on:
+  pull_request:
+    branches: [develop, master]
+  push:
+    branches: [develop, master]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+
+      - name: Install
+        run: yarn install --frozen-lockfile --network-timeout 600000
+
+      - name: Lint (ESLint, zero warnings)
+        run: yarn lint
+
+      - name: Build (tsc -b + vite build)
+        run: yarn build

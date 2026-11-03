@@ -1,72 +1,25 @@
-import type {LoginPayload, LoginResponse, RegisterPayload, RegisterResponse,} from "@shared/types/auth/index.js";
-import { t } from "i18next";
-
-const VITE_BACKEND_API_DOMAIN: string = import.meta.env.VITE_BACKEND_API_DOMAIN;
+import type {Locale} from '@i18n/locales.ts';
+import {apiRequest, rawRequest} from '@shared/api/httpClient.ts';
+import type {ApiResult} from '@shared/types/api/envelope.ts';
+import type {LoginPayload, LoginResponse, RegisterPayload, RegisterResponse} from '@shared/types/auth/index.ts';
 
 /**
- * Perform user login and receive JWT + refresh token
+ * Perform user login and receive JWT + refresh token.
+ * POST /api/login_check (no locale prefix, no envelope). 401: invalid
+ * credentials or account whose email was not confirmed yet.
  */
-export async function loginService(
-    _locale: string,
-    payload: LoginPayload
-): Promise<LoginResponse> {
-    const res: Response = await fetch(`${VITE_BACKEND_API_DOMAIN}/api/login_check`, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(payload),
-    });
-
-    console.log(res);
-
-    if (!res.ok) {
-        const errorData: any = await res.json();
-        throw new Error(errorData.message || t("Login failed"));
-    }
-
-    return res.json();
+export async function loginService(payload: LoginPayload): Promise<LoginResponse> {
+    return rawRequest<LoginResponse>('/api/login_check', {method: 'POST', body: payload});
 }
 
 /**
- * Register a new user and receive confirmation message
+ * Register a new user (201) and send the confirmation email.
+ * POST /{locale}/api/register. 409: email of an account already verified;
+ * 503: account created, but the email could not be sent.
  */
-export async function registerService(
-    locale: string,
-    payload: RegisterPayload
-): Promise<RegisterResponse> {
-    const res: Response = await fetch(`${VITE_BACKEND_API_DOMAIN}/${locale}/api/register`, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(payload),
-    });
-
-    if (!res.ok) {
-        const errorData: any = await res.json();
-        throw new Error(
-            errorData.message || t("Registration failed, if you received a email confirmation you can confirm then")
-        );
-    }
-
-    return res.json();
+export async function registerService(locale: Locale, payload: RegisterPayload): Promise<ApiResult<RegisterResponse>> {
+    return apiRequest<RegisterResponse>(locale, '/register', {method: 'POST', body: payload});
 }
 
-/**
- * Refresh JWT using a valid refresh token.
- * Supports single-use or multi-use tokens per LexikJWTRefreshTokenBundle.
- */
-export async function refreshTokenService(
-    locale: string,
-    refreshToken: string
-): Promise<{ token: string; refresh_token: string }> {
-    const res: Response = await fetch(`${VITE_BACKEND_API_DOMAIN}/${locale}/api/token/refresh`, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({refresh_token: refreshToken}),
-    });
-
-    if (!res.ok) {
-        const errorData: any = await res.json();
-        throw new Error(errorData.message || t("Token refresh failed"));
-    }
-
-    return res.json();
-}
+// NOTA (nov/2026): o refresh do JWT (POST /{locale}/api/token/refresh) saiu
+// daqui: ele é feito pelo httpClient, sozinho, quando uma rota 🔒 dá 401.

@@ -1,4 +1,4 @@
-// response of /api/register
+// data of POST /{locale}/api/register (201)
 export type RegisterResponse = {
-    message: string;
-}
+    user_id: number;
+};

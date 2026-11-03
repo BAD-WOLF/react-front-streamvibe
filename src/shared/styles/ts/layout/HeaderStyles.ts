@@ -12,6 +12,7 @@ export const headerClasses = {
     // Desktop Navigation
     desktopNav: "hidden lg:flex items-center gap-6 xl:gap-8",
     navLink: "text-gray-300 transition-colors duration-300 hover:text-white text-sm xl:text-base",
+    navLinkActive: "text-white font-semibold",
 
     // Search & Avatar Container
     searchAvatarContainer: "flex items-center gap-2 md:gap-4 flex-1 md:flex-initial justify-end",
@@ -29,6 +30,10 @@ export const headerClasses = {
     mobileSearchButton: "md:hidden p-2 text-gray-300 hover:text-white relative z-10",
     mobileSearchIcon: "w-5 h-5",
 
+    // Language
+    languageSelect: "rounded-full border border-white/20 bg-white/10 px-2 py-1.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-[#5B21B6] cursor-pointer",
+    languageOption: "bg-[#1E3A5F] text-white",
+
     // Avatar & Menu
     avatarMenuContainer: "relative z-10",
     avatar: "w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#5B21B6] to-[#9B111E] flex items-center justify-center cursor-pointer flex-shrink-0",
@@ -37,7 +42,9 @@ export const headerClasses = {
     // Dropdown Menu
     dropdownMenu: "absolute right-0 mt-2 w-56 bg-[#1E3A5F]/95 backdrop-blur-xl border border-[#5B21B6]/40 rounded-2xl shadow-2xl overflow-hidden",
     dropdownContent: "py-2",
-    dropdownItem: "block px-5 py-3 text-gray-300 hover:text-white hover:bg-[#5B21B6]/20 transition-all duration-300"
+    dropdownItem: "block w-full text-left px-5 py-3 text-gray-300 hover:text-white hover:bg-[#5B21B6]/20 transition-all duration-300 cursor-pointer",
+    dropdownHeader: "px-5 py-3 border-b border-white/10 text-xs text-white/60 break-all",
+    dropdownSeparator: "my-1 border-t border-white/10"
 };
 
 export const headerAnimations = {

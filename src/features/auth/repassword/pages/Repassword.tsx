@@ -1,102 +1,81 @@
+import AnimatedLogo from "@auth/login-register/components/AnimatedLogo.tsx";
 import EmailRequestForm from "@auth/repassword/components/EmailRequestForm.tsx";
 import RepasswordSuccess from "@auth/repassword/components/RepasswordSuccess.tsx";
+import RequestResult from "@auth/repassword/components/RequestResult.tsx";
 import ResetPasswordForm from "@auth/repassword/components/ResetPasswordForm.tsx";
+import TokenProblem from "@auth/repassword/components/TokenProblem.tsx";
 import {useRepassword} from "@auth/repassword/hooks/useRepassword.ts";
-
-import {RepasswordMode, type RepasswordModeType} from "@auth/repassword/types/RepasswordMode.ts";
+import {RepasswordMode} from "@auth/repassword/types/RepasswordMode.ts";
 import type {UseRepasswordReturn} from '@auth/repassword/types/UseRepasswordReturn.ts';
-import {type ReactElement, useEffect} from "react";
-import {useParams} from "react-router-dom";
-import { Trans } from "react-i18next";
+import type {Locale} from "@i18n/locales.ts";
+import {ErrorMessage} from "@shared/components/feedback/ErrorMessage.tsx";
+import {Loader} from "@shared/components/feedback/Loader.tsx";
+import {useDocumentTitle} from "@shared/hooks/useDocumentTitle.ts";
+import {useLocale} from "@shared/hooks/useLocale.ts";
+import {paths} from "@shared/routing/paths.ts";
+import {authClasses} from "@shared/styles/ts/login/AuthStyles.ts";
+import type {ReactElement} from "react";
+import {useTranslation} from "react-i18next";
+import {Link, type NavigateFunction, type SetURLSearchParams, useNavigate, useParams, useSearchParams} from "react-router-dom";
+import type {Translation} from '@i18n/translation.ts';
+import {hasText} from '@shared/utils/guards.ts';
 
+// NOTA (nov/2026): o link do email chega como {FRONT}/auth/repassword/{token}
+// (o LocaleLayout põe o idioma na frente). O idioma vinha de um parâmetro
+// `locale` que a rota não tinha (ela se chama `_locale`): a troca de senha
+// sempre usava pt_BR. Agora vem do useLocale().
 export default function Repassword(): ReactElement {
-    const { locale: paramLocale, token: paramToken }: Readonly<Partial<{
-        locale?: string | undefined;
-        token?: string | undefined
-    }>> = useParams<{ locale?: string; token?: string; }>();
+    const {t}: Translation = useTranslation();
+    const locale: Locale = useLocale();
+    const navigate: NavigateFunction = useNavigate();
+    const {token}: Readonly<Partial<{ token: string }>> = useParams<{ token: string }>();
+    const [searchParams]: [URLSearchParams, SetURLSearchParams] = useSearchParams();
+    const state: UseRepasswordReturn = useRepassword(locale, token, searchParams.get("email") ?? "");
+    useDocumentTitle(t("Reset password"));
 
-    const locale: string = paramLocale ?? "pt_BR";
-
-    const {
-        mode,
-        isRequested,
-        isDone,
-        email,
-        password,
-        strength,
-        confirmPassword,
-        errors,
-        isLoading,
-        showPassword,
-        setShowPassword,
-        setToken,
-        setEmail,
-        setPassword,
-        setConfirmPassword,
-        handleRequest,
-        handleValidate,
-        handleReset,
-    }: UseRepasswordReturn = useRepassword((): void => {}, locale ?? "pt_BR", paramToken);
-
-    // triggers validation automatically if there is a token in the URL
-    useEffect((): void => {
-        if (paramToken) {
-            setToken(paramToken);
-            handleValidate();
-        }
-    }, [paramToken]);
-
-    // maps each mode to its content
-    const panels: Record<RepasswordModeType, ReactElement | null> = {
-        [RepasswordMode.Request]: !isRequested ? (
-            <EmailRequestForm
-                email={email}
-                errors={errors}
-                isLoading={isLoading}
-                setEmail={setEmail}
-                handleRequest={handleRequest}
-            />
-        ) : (
-            <p className="text-center text-white/80">
-                <Trans>
-                    If there is an account with <b>{email}</b>, you will receive an email with the reset link.
-                </Trans>
-
-            </p>
-        ),
-
-        [RepasswordMode.Validate]: isLoading ? (
-            <p className="text-center text-white"><Trans>Validating token…</Trans></p>
-        ) : errors.token ? (
-            <p className="text-red-500 text-center">{errors.token}</p>
-        ) : null,
-
-        [RepasswordMode.Reset]: (
-            <>
-                <ResetPasswordForm
-                    password={password}
-                    showPassword={showPassword}
-                    setShowPassword={setShowPassword}
-                    strength={strength}
-                    confirmPassword={confirmPassword}
-                    errors={errors}
-                    isLoading={isLoading}
-                    setPassword={setPassword}
-                    setConfirmPassword={setConfirmPassword}
-                    handleReset={handleReset}
-                />
-
-            </>
-        ),
+    const requestNew: () => void = (): void => {
+        if (hasText(token)) void navigate(paths.repassword(locale), {replace: true});
+        state.setMode(RepasswordMode.Request);
     };
 
-    // shows success if done, otherwise the current mode panel
-    const content: ReactElement | null = isDone ? <RepasswordSuccess/> : panels[mode];
+    let content: ReactElement;
+    switch (state.mode) {
+        case RepasswordMode.Request:
+            content = <EmailRequestForm {...state}/>;
+            break;
+        case RepasswordMode.Requested:
+            content = state.requestResult !== null ? <RequestResult result={state.requestResult} email={state.email} locale={locale}/> : <Loader/>;
+            break;
+        case RepasswordMode.Checking:
+            content = state.apiError !== null
+                ? <ErrorMessage error={state.apiError} onRetry={state.retryCheck}/>
+                : <Loader label={t("Validating token…")}/>;
+            break;
+        case RepasswordMode.Reset:
+            content = <ResetPasswordForm locale={locale} {...state}/>;
+            break;
+        case RepasswordMode.Done:
+            content = (
+                <>
+                    <RepasswordSuccess/>
+                    <Link className={authClasses.primaryButton + " block text-center"} to={paths.auth(locale)}>{t("Log in")}</Link>
+                </>
+            );
+            break;
+        case RepasswordMode.Cancelled:
+        case RepasswordMode.Invalid:
+        case RepasswordMode.Expired:
+            content = <TokenProblem mode={state.mode} onRequestNew={requestNew}/>;
+            break;
+    }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-900 px-4">
-            <div className="w-full max-w-md p-8 bg-white/10 rounded-lg shadow-lg space-y-6">
+        <div className={authClasses.page}>
+            <div className={authClasses.card}>
+                <AnimatedLogo/>
+                <h1 className={authClasses.title}>{t("Reset password")}</h1>
                 {content}
+                <p className={authClasses.text}><Link className={authClasses.link} to={paths.auth(locale)}>{t("Back to login")}</Link></p>
             </div>
         </div>
     );

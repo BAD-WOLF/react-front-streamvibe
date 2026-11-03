@@ -1,55 +1,47 @@
+import type {Locale} from '@i18n/locales.ts';
+import {apiRequest} from '@shared/api/httpClient.ts';
+import type {ApiResult} from '@shared/types/api/envelope.ts';
 import type {
-    RepasswordRequestPayload,
-    RepasswordRequestResponse,
-    RepasswordValidateResponse,
-    RepasswordValidatePayload,
-    RepasswordResetPayload,
-    RepasswordResetResponse
-} from "@shared/types/auth/index.ts";
-import { t } from "i18next";
-
-const VITE_BACKEND_API_DOMAIN: string = import.meta.env.VITE_BACKEND_API_DOMAIN;
+    RepasswordCancelPayload, RepasswordCancelResponse, RepasswordConfirmPayload, RepasswordConfirmResponse,
+    RepasswordRequestPayload, RepasswordRequestResponse, RepasswordStatusResponse, UserResetRequestsResponse
+} from '@shared/types/auth/index.ts';
 
 /**
- * Send email recovery
+ * Send the email with the reset link (POST /{locale}/api/reset-password).
+ * 403: account not verified; 429: a link was requested moments ago; 503: email not sent.
  */
-export async function requestPasswordReset(
-    locale: string,
-    payload: RepasswordRequestPayload
-): Promise<RepasswordRequestResponse> {
-    const resp: Response = await fetch(`${VITE_BACKEND_API_DOMAIN}/${locale}/api/reset-password/request`, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(payload),
-    });
-    if (!resp.ok) throw new Error(t("Failed to send reset email"));
-    return resp.json();
+export async function requestPasswordReset(locale: Locale, payload: RepasswordRequestPayload): Promise<ApiResult<RepasswordRequestResponse>> {
+    return apiRequest<RepasswordRequestResponse>(locale, '/reset-password', {method: 'POST', body: payload});
 }
 
 /**
- * Validate the token resaved by email
+ * Can the token of the link still be used? (GET /{locale}/api/reset-password/status/{token})
+ * 400: invalid, cancelled or used token; 410: expired token.
  */
-export async function validateResetToken(
-    locale: string,
-    payload: RepasswordValidatePayload
-): Promise<RepasswordValidateResponse> {
-    const resp: Response = await fetch(`${VITE_BACKEND_API_DOMAIN}/${locale}/api/reset-password/validate/${payload.token}`);
-    if (!resp.ok) throw new Error(t("Invalid token or expired"));
-    return resp.json();
+export async function getResetPasswordStatus(locale: Locale, token: string, signal?: AbortSignal): Promise<ApiResult<RepasswordStatusResponse>> {
+    return apiRequest<RepasswordStatusResponse>(locale, `/reset-password/status/${encodeURIComponent(token)}`, {signal});
 }
 
 /**
- * Send a new pass along with the token
+ * Set the new password (POST /{locale}/api/reset-password/confirm).
+ * Every refresh token of the user is revoked: other sessions log in again.
  */
-export async function resetPassword(
-    locale: string,
-    payload: RepasswordResetPayload
-): Promise<RepasswordResetResponse> {
-    const resp: Response = await fetch(`${VITE_BACKEND_API_DOMAIN}/${locale}/api/reset-password/reset`, {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(payload),
-    });
-    if (!resp.ok) throw new Error(t("Failed to reset password"));
-    return resp.json();
+export async function confirmPasswordReset(locale: Locale, payload: RepasswordConfirmPayload): Promise<ApiResult<RepasswordConfirmResponse>> {
+    return apiRequest<RepasswordConfirmResponse>(locale, '/reset-password/confirm', {method: 'POST', body: payload});
+}
+
+/**
+ * "I did not ask for this": the link stops working (POST /{locale}/api/reset-password/cancel).
+ * 404: no valid request for this token.
+ */
+export async function cancelPasswordReset(locale: Locale, payload: RepasswordCancelPayload): Promise<ApiResult<RepasswordCancelResponse>> {
+    return apiRequest<RepasswordCancelResponse>(locale, '/reset-password/cancel', {method: 'POST', body: payload});
+}
+
+/**
+ * Active reset requests of a user (GET /{locale}/api/reset-password/requests/{userId}, 🔒).
+ * Only the user and ROLE_ADMIN can list them (403 otherwise).
+ */
+export async function getUserResetRequests(locale: Locale, userId: number, signal?: AbortSignal): Promise<ApiResult<UserResetRequestsResponse>> {
+    return apiRequest<UserResetRequestsResponse>(locale, `/reset-password/requests/${userId}`, {auth: true, signal});
 }

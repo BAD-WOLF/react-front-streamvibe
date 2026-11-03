@@ -1,18 +1,22 @@
 #!/usr/bin/env node
-import {promises as fs} from "fs";
-import * as fsSync from "fs";
-import path from "path";
+// NOTA (nov/2026): voltaram os imports de Node. `globalThis.spawnSync` não
+// existe (o script sempre terminava com erro) e `globalThis.global.process`
+// era só um desvio do lint, que agora conhece os globais do Node em scripts/.
+import {spawnSync} from "node:child_process";
+import {existsSync, promises as fs} from "node:fs";
+import path from "node:path";
+import process from "node:process";
 
 /**
  * Read argument --locales:
- * - First tries globalThis.global.process.env.npm_config_locales (npm sends --locales=... here)
+ * - First tries process.env.npm_config_locales (npm sends --locales=... here)
  * - Then tries argv (--locales=value or --locales value)
  */
 function readLocalesArg() {
-    const envVal = globalThis.global.process.env.npm_config_locales;
+    const envVal = process.env.npm_config_locales;
     if (envVal && String(envVal).trim()) return String(envVal);
 
-    const argv = globalThis.global.process.argv.slice(2);
+    const argv = process.argv.slice(2);
     const idx = argv.findIndex(
         (a) => a === "--locales" || a.startsWith("--locales=")
     );
@@ -30,11 +34,11 @@ function parseLocales(raw) {
 }
 
 async function updateLocalesFile(newLocales) {
-    const filePath = path.resolve(globalThis.global.process.cwd(), "locales.json");
+    const filePath = path.resolve(process.cwd(), "locales.json");
     let data = {locales: []};
 
     // make sure the file exists
-    if (!fsSync.existsSync(filePath)) {
+    if (!existsSync(filePath)) {
         await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
     }
 
@@ -64,7 +68,7 @@ async function updateLocalesFile(newLocales) {
 function runI18nextParser() {
     const cmd = "npx";
     const args = ["i18next-parser", "--config", "i18next-parser.config.cjs"];
-    const res = globalThis.spawnSync(cmd, args, {stdio: "inherit", shell: true});
+    const res = spawnSync(cmd, args, {stdio: "inherit", shell: true});
     return res.status ?? 1;
 }
 
@@ -75,15 +79,15 @@ function runI18nextParser() {
 
         if (locales.length) {
             const updated = await updateLocalesFile(locales);
-            globalThis.global.console.log(`✅ locales.json updated: [${updated.join(", ")}]`);
+            console.log(`✅ locales.json updated: [${updated.join(", ")}]`);
         } else {
-            globalThis.global.console.log("ℹ️ no --locales provided; skipping locales.json update.");
+            console.log("ℹ️ no --locales provided; skipping locales.json update.");
         }
 
         const exitCode = runI18nextParser();
-        globalThis.global.process.exit(exitCode);
+        process.exit(exitCode);
     } catch (err) {
-        globalThis.global.console.error("❌ i18n-extract failed:", err);
-        globalThis.global.process.exit(1);
+        console.error("❌ i18n-extract failed:", err);
+        process.exit(1);
     }
 })();

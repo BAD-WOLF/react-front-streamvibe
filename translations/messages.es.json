@@ -1,0 +1,1414 @@
+{
+  "Page": {
+    "not": {
+      "found": "Página no encontrada"
+    },
+    "{{page}}": {
+      "of": {
+        "{{total}}": "Página {{page}} de {{total}}"
+      }
+    }
+  },
+  "This": {
+    "page": {
+      "does": {
+        "not": {
+          "exist.": "Esta página no existe."
+        }
+      }
+    },
+    "link": {
+      "works": {
+        "until": {
+          "{{date}}.": "Este enlace es válido hasta {{date}}."
+        }
+      },
+      "is": {
+        "invalid": {
+          "or": {
+            "was": {
+              "already": {
+                "used.": "Este enlace no es válido o ya se usó."
+              }
+            },
+            "expired.": {
+              "Ask": {
+                "for": {
+                  "a": {
+                    "new": {
+                      "one": {
+                        "below.": "Este enlace no es válido o venció. Pide otro abajo."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "has": {
+        "expired.": "Este enlace venció."
+      }
+    },
+    "account": {
+      "has": {
+        "already": {
+          "confirmed": {
+            "its": {
+              "email.": {
+                "You": {
+                  "can": {
+                    "log": {
+                      "in.": "Esta cuenta ya confirmó su correo. Ya puedes iniciar sesión."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "confirmation": {
+      "link": {
+        "is": {
+          "incomplete.": {
+            "Ask": {
+              "for": {
+                "a": {
+                  "new": {
+                    "one": {
+                      "below.": "Este enlace de confirmación está incompleto. Pide otro abajo."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "email": {
+      "was": {
+        "already": {
+          "confirmed.": "Este correo ya estaba confirmado."
+        }
+      }
+    },
+    "week": "Esta semana"
+  },
+  "Go": {
+    "to": {
+      "the": {
+        "home": {
+          "page": "Ir al inicio"
+        }
+      },
+      "slide": "Ir al destacado"
+    }
+  },
+  "Change": {
+    "password": "Cambiar la contraseña"
+  },
+  "We": {
+    "will": {
+      "email": {
+        "you": {
+          "a": {
+            "link": {
+              "to": {
+                "set": {
+                  "a": {
+                    "new": {
+                      "password.": {
+                        "After": {
+                          "the": {
+                            "change,": {
+                              "every": {
+                                "session": {
+                                  "of": {
+                                    "your": {
+                                      "account": {
+                                        "is": {
+                                          "closed.": "Te enviaremos por correo un enlace para definir una contraseña nueva. Después del cambio, se cierran todas las sesiones de tu cuenta."
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sent": {
+      "a": {
+        "confirmation": {
+          "link": {
+            "to": {
+              "{{email}}.": {
+                "Open": {
+                  "it": {
+                    "to": {
+                      "activate": {
+                        "your": {
+                          "account.": "Enviamos un enlace de confirmación a {{email}}. Ábrelo para activar tu cuenta."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "new": {
+          "confirmation": {
+            "email.": "Enviamos un nuevo correo de confirmación."
+          }
+        }
+      },
+      "the": {
+        "link": {
+          "to": {
+            "{{email}}.": "Enviamos el enlace a {{email}}."
+          }
+        }
+      }
+    }
+  },
+  "Sending...": "Enviando...",
+  "Send": {
+    "me": {
+      "the": {
+        "link": "Envíame el enlace"
+      }
+    },
+    "password": {
+      "reset": {
+        "email": "Enviar el correo para cambiar la contraseña"
+      }
+    },
+    "again": {
+      "in": {
+        "{{seconds}}s": "Enviar de nuevo en {{seconds}}s"
+      }
+    }
+  },
+  "Type": {
+    "a": {
+      "valid": {
+        "account": {
+          "id": {
+            "(a": {
+              "positive": {
+                "whole": {
+                  "number).": "Escribe un id de cuenta válido (un número entero positivo)."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "the": {
+      "email": {
+        "of": {
+          "your": {
+            "account": {
+              "and": {
+                "we": {
+                  "will": {
+                    "send": {
+                      "you": {
+                        "a": {
+                          "link": {
+                            "to": {
+                              "set": {
+                                "a": {
+                                  "new": {
+                                    "password.": "Escribe el correo de tu cuenta y te enviaremos un enlace para definir una contraseña nueva."
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "something": {
+      "to": {
+        "search.": "Escribe algo para buscar."
+      }
+    }
+  },
+  "Active": {
+    "password": {
+      "reset": {
+        "requests": "Solicitudes de cambio de contraseña activas"
+      }
+    }
+  },
+  "As": {
+    "an": {
+      "administrator,": {
+        "you": {
+          "can": {
+            "look": {
+              "up": {
+                "the": {
+                  "requests": {
+                    "of": {
+                      "any": {
+                        "account": {
+                          "by": {
+                            "its": {
+                              "id.": "Como administrador, puedes consultar las solicitudes de cualquier cuenta por su id."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "You": {
+    "can": {
+      "look": {
+        "up": {
+          "the": {
+            "requests": {
+              "of": {
+                "your": {
+                  "own": {
+                    "account.": {
+                      "The": {
+                        "account": {
+                          "id": {
+                            "is": {
+                              "filled": {
+                                "in": {
+                                  "when": {
+                                    "you": {
+                                      "registered": {
+                                        "on": {
+                                          "this": {
+                                            "device.": "Puedes consultar las solicitudes de tu propia cuenta. El id de la cuenta viene completado cuando el registro se hizo en este navegador."
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "now": {
+        "log": {
+          "in": {
+            "with": {
+              "your": {
+                "new": {
+                  "password.": "Ya puedes iniciar sesión con tu contraseña nueva."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "will": {
+      "be": {
+        "redirected": {
+          "shortly...": "Serás redirigido en un momento..."
+        }
+      }
+    },
+    "must": {
+      "agree": {
+        "to": {
+          "the": {
+            "terms": {
+              "of": {
+                "use.": "Debes aceptar los términos de uso."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Account": {
+    "id": "Id de la cuenta",
+    "{{id}}": {
+      "has": {
+        "confirmed": {
+          "its": {
+            "email.": "La cuenta {{id}} ya confirmó su correo."
+          }
+        },
+        "not": {
+          "confirmed": {
+            "its": {
+              "email": {
+                "yet.": "La cuenta {{id}} todavía no confirmó su correo."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Look": {
+    "up": "Consultar"
+  },
+  "No": {
+    "active": {
+      "requests": {
+        "for": {
+          "account": {
+            "{{id}}.": "No hay solicitudes activas para la cuenta {{id}}."
+          }
+        }
+      }
+    },
+    "images.": "No hay imágenes.",
+    "videos": {
+      "in": {
+        "this": {
+          "language.": "No hay videos en este idioma."
+        }
+      }
+    },
+    "movies": {
+      "found.": "No se encontraron películas."
+    },
+    "credits": {
+      "here.": "No hay créditos aquí."
+    },
+    "biography": {
+      "in": {
+        "this": {
+          "language.": "Sin biografía en este idioma."
+        }
+      }
+    }
+  },
+  "Requested": {
+    "at": "Solicitado el"
+  },
+  "Expires": {
+    "at": "Vence el"
+  },
+  "Session": "Sesión",
+  "Email": {
+    "address": "Correo electrónico",
+    "verification": {
+      "of": {
+        "an": {
+          "account": "Verificación de correo de una cuenta"
+        }
+      }
+    },
+    "confirmed!": {
+      "You": {
+        "can": {
+          "log": {
+            "in": {
+              "now.": "¡Correo confirmado! Ya puedes iniciar sesión."
+            }
+          }
+        }
+      },
+      "Your": {
+        "account": {
+          "is": {
+            "ready.": "¡Correo confirmado! Tu cuenta está lista."
+          }
+        }
+      }
+    },
+    "is": {
+      "required.": "El correo es obligatorio."
+    }
+  },
+  "Roles": "Roles",
+  "Access": {
+    "token": {
+      "valid": {
+        "until": "Token de acceso válido hasta"
+      }
+    }
+  },
+  "The": {
+    "access": {
+      "token": {
+        "lasts": {
+          "one": {
+            "hour": {
+              "and": {
+                "is": {
+                  "renewed": {
+                    "automatically": {
+                      "while": {
+                        "your": {
+                          "session": {
+                            "is": {
+                              "open": {
+                                "(up": {
+                                  "to": {
+                                    "30": {
+                                      "days).": "El token de acceso dura una hora y se renueva solo mientras la sesión está abierta (hasta 30 días)."
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "link": {
+      "is": {
+        "valid.": {
+          "Confirm": {
+            "your": {
+              "email": {
+                "to": {
+                  "activate": {
+                    "your": {
+                      "account.": "El enlace es válido. Confirma tu correo para activar la cuenta."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "download": {
+      "failed.": {
+        "Please": {
+          "try": {
+            "again.": "La descarga falló. Inténtalo de nuevo."
+          }
+        }
+      }
+    },
+    "search": {
+      "can": {
+        "have": {
+          "up": {
+            "to": {
+              "255": {
+                "characters.": "La búsqueda puede tener hasta 255 caracteres."
+              }
+            }
+          }
+        }
+      }
+    },
+    "server": {
+      "is": {
+        "unavailable": {
+          "right": {
+            "now.": {
+              "Please": {
+                "try": {
+                  "again": {
+                    "later.": "El servidor no está disponible ahora. Inténtalo más tarde."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Log": {
+    "out": "Cerrar sesión",
+    "In": "Iniciar sesión",
+    "in": "Iniciar sesión"
+  },
+  "Check": {
+    "status": "Consultar",
+    "your": {
+      "email": "Revisa tu correo"
+    }
+  },
+  "My": {
+    "account": "Mi cuenta"
+  },
+  "Illustration": "Ilustración",
+  "Tell": {
+    "me": {
+      "your": {
+        "password": "Tu contraseña"
+      }
+    }
+  },
+  "Confirm": {
+    "Password": "Confirma la contraseña",
+    "new": {
+      "password": "Confirma la contraseña nueva"
+    },
+    "your": {
+      "email": "Confirma tu correo"
+    },
+    "my": {
+      "email": "Confirmar mi correo"
+    }
+  },
+  "I": {
+    "agree": {
+      "to": {
+        "the": {
+          "terms": {
+            "of": {
+              "use": {
+                "and": {
+                  "the": {
+                    "privacy": {
+                      "policy.": "Acepto los términos de uso y la política de privacidad."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "already": {
+      "confirmed,": {
+        "log": {
+          "in": "Ya confirmé, iniciar sesión"
+        }
+      }
+    },
+    "did": {
+      "not": {
+        "ask": {
+          "for": {
+            "this:": {
+              "cancel": {
+                "the": {
+                  "link": "No pedí esto: cancelar el enlace"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Please": {
+    "wait...": "Espera..."
+  },
+  "Register": "Registrarse",
+  "Forgot": {
+    "your": {
+      "password?": "¿Olvidaste tu contraseña?"
+    }
+  },
+  "Didn't": {
+    "get": {
+      "the": {
+        "confirmation": {
+          "email?": "¿No recibiste el correo de confirmación?"
+        }
+      }
+    }
+  },
+  "Login": {
+    "successful!": "¡Sesión iniciada!"
+  },
+  "Your": {
+    "account": {
+      "was": {
+        "created,": {
+          "but": {
+            "the": {
+              "confirmation": {
+                "email": {
+                  "could": {
+                    "not": {
+                      "be": {
+                        "sent.": {
+                          "Try": {
+                            "sending": {
+                              "it": {
+                                "again.": "Tu cuenta fue creada, pero no se pudo enviar el correo de confirmación. Intenta enviarlo de nuevo."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "email": "Tu correo",
+    "password": {
+      "has": {
+        "been": {
+          "successfully": {
+            "changed!": "¡Tu contraseña fue cambiada!"
+          }
+        }
+      }
+    },
+    "session": {
+      "has": {
+        "expired.": {
+          "Please": {
+            "log": {
+              "in": {
+                "again.": "Tu sesión venció. Inicia sesión de nuevo."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Waiting": {
+    "for": {
+      "the": {
+        "confirmation...": "Esperando la confirmación..."
+      }
+    }
+  },
+  "Coming": {
+    "soon": "Próximamente"
+  },
+  "Continue": {
+    "with": "Continuar con"
+  },
+  "Doesn't": {
+    "have": {
+      "an": {
+        "account?": "¿No tienes cuenta?"
+      }
+    }
+  },
+  "Already": {
+    "have": {
+      "an": {
+        "account?": "¿Ya tienes cuenta?"
+      }
+    }
+  },
+  "Sign": {
+    "up": "Regístrate"
+  },
+  "Password": {
+    "is": {
+      "required.": "La contraseña es obligatoria.",
+      "too": {
+        "weak:": {
+          "make": {
+            "it": {
+              "longer": {
+                "or": {
+                  "mix": {
+                    "upper": {
+                      "and": {
+                        "lower": {
+                          "case": {
+                            "letters,": {
+                              "numbers": {
+                                "and": {
+                                  "symbols.": "Contraseña demasiado débil: usa una más larga o mezcla mayúsculas y minúsculas, números y símbolos."
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "must": {
+      "be": {
+        "at": {
+          "least": {
+            "{{count}}": {
+              "characters": {
+                "long._one": "La contraseña debe tener al menos {{count}} carácter.",
+                "long._many": "La contraseña debe tener al menos {{count}} caracteres.",
+                "long._other": "La contraseña debe tener al menos {{count}} caracteres."
+              }
+            }
+          }
+        }
+      }
+    },
+    "cannot": {
+      "be": {
+        "longer": {
+          "than": {
+            "{{count}}": {
+              "characters._one": "La contraseña puede tener como máximo {{count}} carácter.",
+              "characters._many": "La contraseña puede tener como máximo {{count}} caracteres.",
+              "characters._other": "La contraseña puede tener como máximo {{count}} caracteres."
+            }
+          }
+        }
+      }
+    }
+  },
+  "Passwords": {
+    "do": {
+      "not": {
+        "match.": "Las contraseñas no coinciden."
+      }
+    }
+  },
+  "For": {
+    "your": {
+      "safety,": {
+        "every": {
+          "session": {
+            "of": {
+              "your": {
+                "account": {
+                  "was": {
+                    "closed;": {
+                      "log": {
+                        "in": {
+                          "again": {
+                            "on": {
+                              "each": {
+                                "device.": "Por seguridad, se cerraron todas las sesiones de tu cuenta; inicia sesión de nuevo en cada dispositivo."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "It": {
+    "works": {
+      "until": {
+        "{{date}}.": "Es válido hasta {{date}}."
+      }
+    }
+  },
+  "A": {
+    "link": {
+      "was": {
+        "already": {
+          "sent": {
+            "and": {
+              "still": {
+                "works": {
+                  "until": {
+                    "{{date}}.": {
+                      "Check": {
+                        "your": {
+                          "inbox": {
+                            "and": {
+                              "the": {
+                                "spam": {
+                                  "folder.": "Ya se envió un enlace y es válido hasta {{date}}. Revisa la bandeja de entrada y el spam."
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "If": {
+    "there": {
+      "is": {
+        "an": {
+          "account": {
+            "with": {
+              "this": {
+                "email,": {
+                  "you": {
+                    "will": {
+                      "receive": {
+                        "a": {
+                          "link": {
+                            "to": {
+                              "set": {
+                                "a": {
+                                  "new": {
+                                    "password.": "Si hay una cuenta con este correo, recibirás un enlace para definir una contraseña nueva."
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "an": {
+      "account": {
+        "uses": {
+          "this": {
+            "email,": {
+              "a": {
+                "new": {
+                  "confirmation": {
+                    "link": {
+                      "is": {
+                        "on": {
+                          "its": {
+                            "way.": "Si alguna cuenta usa este correo, un nuevo enlace de confirmación está en camino."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "New": {
+    "password": "Contraseña nueva"
+  },
+  "Resetting...": "Cambiando...",
+  "Reset": {
+    "password": "Cambiar la contraseña"
+  },
+  "Done:": {
+    "the": {
+      "link": {
+        "no": {
+          "longer": {
+            "works.": {
+              "Your": {
+                "password": {
+                  "was": {
+                    "not": {
+                      "changed.": "Listo: el enlace ya no funciona. Tu contraseña no se cambió."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Ask": {
+    "for": {
+      "a": {
+        "new": {
+          "link": "Pedir un enlace nuevo"
+        }
+      }
+    }
+  },
+  "Validating": {
+    "token…": "Verificando el enlace…"
+  },
+  "Back": {
+    "to": {
+      "login": "Volver al inicio de sesión"
+    }
+  },
+  "Invalid": {
+    "email": {
+      "format.": "Formato de correo no válido."
+    }
+  },
+  "Resend": {
+    "the": {
+      "confirmation": {
+        "email": "Reenviar el correo de confirmación"
+      }
+    }
+  },
+  "Checking": {
+    "the": {
+      "link...": "Verificando el enlace...",
+      "API...": "Verificando la API..."
+    }
+  },
+  "Confirming...": "Confirmando...",
+  "See": {
+    "all": "Ver todos"
+  },
+  "Nothing": {
+    "here": {
+      "yet.": "Nada aquí todavía."
+    }
+  },
+  "Loading...": "Cargando...",
+  "Load": {
+    "more": "Cargar más"
+  },
+  "View": {
+    "Details": "Ver detalles"
+  },
+  "NOW": {
+    "PLAYING": "REPRODUCIENDO"
+  },
+  "Turn": {
+    "sound": {
+      "on": "Activar el sonido",
+      "off": "Desactivar el sonido"
+    }
+  },
+  "Watch": {
+    "trailer": "Ver el tráiler"
+  },
+  "More": {
+    "info": "Más información",
+    "filters": "Más filtros"
+  },
+  "Home": "Inicio",
+  "Trending": {
+    "Now": "Tendencias",
+    "period": "Período de las tendencias",
+    "movies": "Tendencias"
+  },
+  "Popular": "Populares",
+  "Top": {
+    "Rated": "Mejor valoradas"
+  },
+  "Now": {
+    "Playing": "En cartelera"
+  },
+  "Show": {
+    "more": {
+      "images": "Mostrar más imágenes"
+    },
+    "less": "Mostrar menos",
+    "password": "Mostrar la contraseña"
+  },
+  "Previous": "Anterior",
+  "Next": "Siguiente",
+  "Size": "Tamaño",
+  "Re-encode": {
+    "JPEG": {
+      "quality": "Recomprimir el JPEG (calidad)"
+    }
+  },
+  "Quality": "Calidad",
+  "Only": {
+    "JPEG": {
+      "images": {
+        "are": {
+          "re-encoded.": "Solo se recomprimen las imágenes JPEG."
+        }
+      }
+    },
+    "images": {
+      "in": {
+        "my": {
+          "language": "Solo imágenes en mi idioma"
+        }
+      }
+    }
+  },
+  "Dimensions": "Dimensiones",
+  "File": {
+    "type": "Tipo de archivo",
+    "size": "Tamaño del archivo"
+  },
+  "Extension": "Extensión",
+  "Language": "Idioma",
+  "Download": {
+    "this": {
+      "size": "Descargar en este tamaño"
+    },
+    "original": "Descargar el original"
+  },
+  "Open": {
+    "on": {
+      "the": {
+        "image": {
+          "CDN": "Abrir en el CDN de imágenes"
+        }
+      }
+    }
+  },
+  "Directed": {
+    "by": "Dirección"
+  },
+  "Screenplay": "Guion",
+  "Written": {
+    "by": "Escrito por"
+  },
+  "Story": {
+    "by": "Argumento"
+  },
+  "Based": {
+    "on": {
+      "the": {
+        "novel": {
+          "by": "Basada en la novela de"
+        }
+      }
+    }
+  },
+  "Produced": {
+    "by": "Producción"
+  },
+  "Music": {
+    "by": "Música"
+  },
+  "Cinematography": "Fotografía",
+  "Edited": {
+    "by": "Montaje"
+  },
+  "Backdrops": "Fondos",
+  "Posters": "Pósteres",
+  "Logos": "Logos",
+  "Part": {
+    "of": {
+      "the": {
+        "collection": "Forma parte de la colección"
+      }
+    }
+  },
+  "Status": "Estado",
+  "Release": {
+    "date": "Estreno",
+    "region": {
+      "(e.g.": {
+        "BR)": "Región del estreno (ej.: ES)"
+      }
+    }
+  },
+  "Runtime": "Duración",
+  "Original": {
+    "language": "Idioma original"
+  },
+  "Spoken": {
+    "languages": "Idiomas hablados"
+  },
+  "Production": {
+    "countries": "Países de producción"
+  },
+  "Country": {
+    "of": {
+      "origin": "País de origen"
+    }
+  },
+  "Budget": "Presupuesto",
+  "Box": {
+    "office": "Taquilla"
+  },
+  "Votes": "Votos",
+  "{{count}}": {
+    "votes_one": "{{count}} voto",
+    "votes_many": "{{count}} votos",
+    "votes_other": "{{count}} votos",
+    "movies_one": "{{count}} película",
+    "movies_many": "{{count}} películas",
+    "movies_other": "{{count}} películas",
+    "results": {
+      "for": {
+        "\"{{query}}\"_one": "{{count}} resultado para \"{{query}}\"",
+        "\"{{query}}\"_many": "{{count}} resultados para \"{{query}}\"",
+        "\"{{query}}\"_other": "{{count}} resultados para \"{{query}}\""
+      }
+    }
+  },
+  "Official": {
+    "site": "Sitio oficial",
+    "video": "Oficial"
+  },
+  "Today": "Hoy",
+  "Trailers": "Tráileres",
+  "Teasers": "Teasers",
+  "Clips": "Clips",
+  "All": {
+    "videos": "Todos los videos"
+  },
+  "About": {
+    "the": {
+      "movie": "Sobre la película"
+    }
+  },
+  "Cast": "Reparto",
+  "Videos": "Videos",
+  "Images": "Imágenes",
+  "Recommended": {
+    "for": {
+      "you": "Recomendadas para ti"
+    }
+  },
+  "Similar": {
+    "movies": "Películas similares"
+  },
+  "Search": {
+    "results": "Resultados de la búsqueda",
+    "movies": "Buscar películas",
+    "now": "Buscar",
+    "TMDB": {
+      "movies": {
+        "by": {
+          "title.": "Busca películas de TMDB por título."
+        }
+      }
+    },
+    "movies...": "Buscar películas..."
+  },
+  "Use": {
+    "a": {
+      "year": {
+        "between": {
+          "{{min}}": {
+            "and": {
+              "{{max}}.": "Usa un año entre {{min}} y {{max}}."
+            }
+          }
+        }
+      }
+    },
+    "the": {
+      "two-letter": {
+        "country": {
+          "code": {
+            "(e.g.": {
+              "BR).": "Usa el código del país de dos letras (ej.: ES)."
+            }
+          }
+        }
+      }
+    }
+  },
+  "Movie": {
+    "title...": "Título de la película..."
+  },
+  "Hide": {
+    "filters": "Ocultar filtros",
+    "password": "Ocultar la contraseña"
+  },
+  "Year": {
+    "(any": {
+      "release)": "Año (cualquier estreno)"
+    },
+    "of": {
+      "the": {
+        "main": {
+          "release": "Año del estreno principal"
+        }
+      }
+    }
+  },
+  "Include": {
+    "adult": {
+      "titles": "Incluir títulos para adultos"
+    }
+  },
+  "episodes": "episodios",
+  "Movies": {
+    "(acting)": "Películas (actuación)",
+    "(crew)": "Películas (equipo)"
+  },
+  "TV": {
+    "(acting)": "Series (actuación)",
+    "(crew)": "Series (equipo)"
+  },
+  "{{age}}": {
+    "years": {
+      "old": "{{age}} años"
+    }
+  },
+  "aged": {
+    "{{age}}": "a los {{age}} años"
+  },
+  "Known": {
+    "for": "Conocido por"
+  },
+  "Born": "Nacimiento",
+  "Place": {
+    "of": {
+      "birth": "Lugar de nacimiento"
+    }
+  },
+  "Died": "Fallecimiento",
+  "Also": {
+    "known": {
+      "as": "También conocido como"
+    }
+  },
+  "Read": {
+    "the": {
+      "full": {
+        "biography": "Leer la biografía completa"
+      }
+    }
+  },
+  "Credits": "Créditos",
+  "Photos": "Fotos",
+  "API": {
+    "online": "API en línea",
+    "offline": "API fuera de línea",
+    "documentation": "Documentación de la API"
+  },
+  "Backend": {
+    "on": {
+      "GitHub": "Backend en GitHub"
+    }
+  },
+  "Frontend": {
+    "on": {
+      "GitHub": "Frontend en GitHub"
+    }
+  },
+  "StreamVibe": {
+    "Logo": "Logo de StreamVibe"
+  },
+  "Menu": "Menú",
+  "Not": {
+    "found.": "No encontrado."
+  },
+  "Too": {
+    "many": {
+      "requests.": {
+        "Please": {
+          "wait": {
+            "a": {
+              "moment": {
+                "and": {
+                  "try": {
+                    "again.": "Demasiados intentos. Espera un momento e inténtalo de nuevo."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Unexpected": {
+    "error.": {
+      "Please": {
+        "try": {
+          "again": {
+            "later.": "Error inesperado. Inténtalo más tarde."
+          }
+        }
+      }
+    }
+  },
+  "Could": {
+    "not": {
+      "reach": {
+        "the": {
+          "server.": {
+            "Check": {
+              "your": {
+                "connection": {
+                  "and": {
+                    "try": {
+                      "again.": "No se pudo contactar con el servidor. Revisa tu conexión e inténtalo de nuevo."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Very": {
+    "weak": "Muy débil",
+    "strong": "Muy fuerte"
+  },
+  "Weak": "Débil",
+  "Medium": "Media",
+  "Strong": "Fuerte",
+  "Strength": "Fuerza",
+  "Try": {
+    "again": "Intentar de nuevo"
+  },
+  "Close": "Cerrar",
+  "Pagination": "Paginación"
+}

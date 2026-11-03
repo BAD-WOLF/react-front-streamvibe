@@ -4,6 +4,17 @@ services:
       target: base
     environment:
       NODE_ENV: development
+      # NOTA (nov/2026): no WSL2, com o código numa pasta do Windows (/mnt/c/...),
+      # o aviso de arquivo alterado não chega ao container; com o polling, o Vite
+      # confere os arquivos sozinho e atualiza a tela. Em Linux ou macOS, pode ser "false".
+      CHOKIDAR_USEPOLLING: "true"
     ports:
       - "5173:5173"
+    # NOTA (nov/2026): o código da máquina entra no container, e o `yarn dev`
+    # mostra cada alteração na hora (antes, rodava a cópia feita no build). O
+    # node_modules continua o da imagem, instalado para o Linux do container.
+    # Depois de mudar dependências: docker compose up --build -V
+    volumes:
+      - .:/app
+      - /app/node_modules
     command: [ "yarn", "dev", "--host", "0.0.0.0" ]

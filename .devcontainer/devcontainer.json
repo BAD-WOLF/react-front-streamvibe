@@ -21,12 +21,25 @@
     5173
   ],
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "yarn install",
+  // NOTA (nov/2026): as mesmas opções do Dockerfile (o yarn.lock manda, e os
+  // pacotes grandes não estouram o tempo de download).
+  "postCreateCommand": "yarn install --frozen-lockfile --network-timeout 600000",
 
   // Configure tool-specific properties.
   "customizations": {
     "jetbrains": {
       "backend": "WebStorm"
+    },
+    // NOTA (nov/2026): no VS Code, a extensão do ESLint (que mostra a tipagem
+    // forte na hora) e o TypeScript do próprio projeto.
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint"
+      ],
+      "settings": {
+        "typescript.tsdk": "node_modules/typescript/lib",
+        "typescript.enablePromptUseWorkspaceTsdk": true
+      }
     }
   }
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.

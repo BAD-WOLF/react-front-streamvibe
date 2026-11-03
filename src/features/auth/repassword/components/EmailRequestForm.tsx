@@ -1,28 +1,42 @@
 import type {UseRepasswordReturn} from '@auth/repassword/types/UseRepasswordReturn.ts';
+import ResendVerificationForm from '@auth/verify-email/components/ResendVerificationForm.tsx';
+import {ApiAction, ApiErrorType, isApiError} from '@shared/api/ApiError.ts';
+import {ErrorMessage} from '@shared/components/feedback/ErrorMessage.tsx';
+import {authClasses} from '@shared/styles/ts/login/AuthStyles.ts';
 import type {ChangeEvent, ReactElement} from "react";
-import { t } from "i18next";
+import {useTranslation} from "react-i18next";
+import type {Translation} from '@i18n/translation.ts';
 
 export default function EmailRequestForm({
-    email, errors, isLoading, setEmail, handleRequest,
-}: Pick<UseRepasswordReturn, "email" | "errors" | "isLoading" | "setEmail" | "handleRequest">): ReactElement {
+    email, errors, apiError, isLoading, setEmail, handleRequest,
+}: Pick<UseRepasswordReturn, "email" | "errors" | "apiError" | "isLoading" | "setEmail" | "handleRequest">): ReactElement {
+    const {t}: Translation = useTranslation();
+    // 403 com action_required "email_verification": a conta ainda não confirmou o email
+    const needsVerification: boolean = isApiError(apiError)
+        && (apiError.actionRequired === ApiAction.EmailVerification || apiError.type === ApiErrorType.UserNotVerified);
+
     return (
-        <form onSubmit={handleRequest} className="space-y-4">
-            <input
-                type="email"
-                placeholder={t("Your email")}
-                value={email}
-                onChange={(e: ChangeEvent<HTMLInputElement>): void => setEmail(e.target.value)}
-                disabled={isLoading}
-                className="w-full p-2 border rounded"
-            />
-            {errors.email && <p className="text-red-500">{errors.email}</p>}
-            <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full py-2 bg-blue-600 text-white rounded"
-            >
-                {isLoading ? t("Sending...") : t("Send password reset email")}
-            </button>
-        </form>
+        <div className={authClasses.stack}>
+            <form onSubmit={handleRequest} className={authClasses.stack} noValidate>
+                <p className={authClasses.text}>{t("Type the email of your account and we will send you a link to set a new password.")}</p>
+                <input
+                    type="email"
+                    placeholder={t("Your email")}
+                    aria-label={t("Your email")}
+                    autoComplete="email"
+                    value={email}
+                    onChange={(e: ChangeEvent<HTMLInputElement>): void => setEmail(e.target.value)}
+                    disabled={isLoading}
+                    className={authClasses.emailInput}
+                />
+                {errors.email !== undefined && <p className={authClasses.fieldError}>{errors.email}</p>}
+                {apiError !== null && <ErrorMessage error={apiError}/>}
+                <button type="submit" disabled={isLoading} className={authClasses.primaryButton}>
+                    {isLoading ? t("Sending...") : t("Send password reset email")}
+                </button>
+            </form>
+
+            {needsVerification && <ResendVerificationForm initialEmail={email} lockEmail/>}
+        </div>
     );
 }

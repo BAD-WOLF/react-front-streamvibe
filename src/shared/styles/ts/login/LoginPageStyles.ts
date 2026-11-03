@@ -3,17 +3,16 @@ export const gradients = {
     gradiente2: "bg-gradient-to-b from-[#F7797D] to-[#FBD786]",
 };
 
-export const containerClasses = `min-h-screen flex justify-center items-center p-5 ${gradients.gradiente1} font-sans`;
+export const containerClasses: string = `min-h-screen flex justify-center items-center p-5 ${gradients.gradiente1} font-sans`;
 export const cardClasses = `bg-white rounded-2xl w-full max-w-3xl shadow-[0_20px_60px_rgba(0,0,0,0.2)] overflow-hidden`;
-export const illustrationClasses = `flex flex-col items-center justify-center text-white p-10 ${gradients.gradiente2}`;
+export const illustrationClasses: string = `flex flex-col items-center justify-center text-white p-10 ${gradients.gradiente2}`;
 export const formSectionClasses = `px-10 py-12 flex flex-col`;
 
-export const inputContainer = (focused: boolean, hasError: boolean) => {
-    console.log(hasError);
-    return `relative mb-6 transition-all rounded-lg ${focused ? "ring-4 ring-indigo-400" : ""}`;
-};
+// NOTA (nov/2026): saiu o console.log(hasError), e o erro passou a pintar o anel de foco.
+export const inputContainer = (focused: boolean, hasError: boolean): string =>
+    `relative mb-6 transition-all rounded-lg ${focused ? (hasError ? "ring-4 ring-red-400/60" : "ring-4 ring-indigo-400") : ""}`;
 
-export const inputClasses = (hasError: boolean) =>
+export const inputClasses = (hasError: boolean): string =>
     `w-full px-10 py-3 rounded-lg border-2 text-base outline-none transition-colors focus:border-indigo-500 ${hasError ? "border-red-500" : "border-gray-200"}`;
 
 export const iconBase = "absolute top-1/2 transform -translate-y-1/2 text-gray-400 text-lg";

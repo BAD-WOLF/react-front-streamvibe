@@ -1,7 +1,9 @@
-const locales = globalThis.global.require("./locales.json");
+// NOTA (nov/2026): voltou a ser CommonJS puro. O `globalThis.global.require`
+// não existe (require é do módulo, não global) e quebrava o `yarn i18n:extract`.
+const locales = require("./locales.json");
 
-/** @type {import('i18next-parser').I18NextParserOptions} */
-globalThis.global.module.exports = {
+/** @type {import('i18next-parser').UserConfig} */
+module.exports = {
     input: ['src/**/*.{ts,tsx,js,jsx}'],
     output: 'translations/$NAMESPACE.$LOCALE.json',
 
@@ -9,10 +11,12 @@ globalThis.global.module.exports = {
     namespace: ['messages'],
     ...locales,
     keySeparator: ' ',
-    nsSeparator: false,
+    namespaceSeparator: false, // o nome da opção no i18next-parser (nsSeparator é do i18next)
 
     useKeysAsDefaultValue: false, // don't copy the raw key
-    defaultValue: (lng, ns, key) => key.replace(/\./g, ' '),
+    // NOTA (nov/2026): o valor padrão é a própria chave. Antes ele trocava "." por
+    // espaço (resto de quando a chave era separada por ponto) e cortava o ponto final das frases.
+    defaultValue: (lng, ns, key) => key,
 
     lexers: {
         ts: ['JavascriptLexer'],

@@ -1,17 +1,13 @@
-import React, {type ReactElement, useState} from 'react'
-import {imageWithFallbackClasses, imageWithFallbackConstants} from '../../../shared/styles/ts/layout/ImageWithFallbackStyles.ts';
+import {imageWithFallbackClasses, imageWithFallbackConstants} from '@shared/styles/ts/layout/ImageWithFallbackStyles.ts';
+import {hasText} from '@shared/utils/guards.ts';
+import {type Dispatch, type ImgHTMLAttributes, type ReactElement, type SetStateAction, useState} from 'react';
 
-export function ImageWithFallback(props: React.ImgHTMLAttributes<HTMLImageElement>): ReactElement {
-    const [didError, setDidError]: [boolean, (value: (((prevState: boolean) => boolean) | boolean)) => void] = useState(
-        false)
+export function ImageWithFallback(props: ImgHTMLAttributes<HTMLImageElement>): ReactElement {
+    const [didError, setDidError]: [boolean, Dispatch<SetStateAction<boolean>>] = useState<boolean>(false);
 
-    const handleError: () => void = (): void => {
-        setDidError(true)
-    }
+    const {src, alt, style, className, ...rest}: ImgHTMLAttributes<HTMLImageElement> = props;
 
-    const {src, alt, style, className, ...rest}: React.ImgHTMLAttributes<HTMLImageElement> = props
-
-    return didError ? (
+    return didError || !hasText(src) ? (
         <div
             className={`${imageWithFallbackClasses.errorContainer} ${className ?? ''}`}
             style={style}
@@ -21,6 +17,6 @@ export function ImageWithFallback(props: React.ImgHTMLAttributes<HTMLImageElemen
             </div>
         </div>
     ) : (
-        <img src={src} alt={alt} className={className} style={style} {...rest} onError={handleError}/>
-    )
+        <img src={src} alt={alt} className={className} style={style} {...rest} onError={(): void => setDidError(true)}/>
+    );
 }

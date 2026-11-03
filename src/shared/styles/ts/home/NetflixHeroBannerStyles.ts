@@ -5,6 +5,8 @@ export const netflixHeroBannerClasses = {
     backgroundContainer: "absolute inset-0",
     posterContainer: "absolute inset-0",
     video: "absolute inset-0 w-full h-full object-cover",
+    // o iframe do YouTube não tem object-cover: 16:9 maior que a tela, centralizado
+    trailerFrame: "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full pointer-events-none",
     poster: "w-full h-full object-cover",
     
     // Overlays
@@ -25,7 +27,9 @@ export const netflixHeroBannerClasses = {
     contentInner: "max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8",
     contentWrapper: "max-w-2xl",
     title: "text-white mb-3 sm:mb-4 md:mb-6 text-2xl sm:text-3xl md:text-5xl lg:text-6xl drop-shadow-2xl",
-    description: "text-white/95 mb-5 sm:mb-6 md:mb-8 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed max-w-md md:max-w-xl drop-shadow-lg",
+    description: "text-white/95 mb-5 sm:mb-6 md:mb-8 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed max-w-md md:max-w-xl drop-shadow-lg line-clamp-4",
+    meta: "flex flex-wrap items-center gap-3 mb-3 text-xs sm:text-sm text-white/80",
+    metaRating: "rounded-full bg-[#5B21B6]/70 px-2.5 py-0.5 font-semibold text-white",
     
     // Buttons
     buttonsContainer: "flex flex-wrap gap-3 md:gap-4",
@@ -96,6 +100,6 @@ export const netflixHeroBannerTransitions = {
 
 export const netflixHeroBannerConstants = {
     MAX_VIDEO_DURATION: 60, // 60 segundos
-    BANNER_DURATION: 80000, // 80 segundos (20 segundos)
+    BANNER_DURATION: 80000, // 80 segundos
     AUTO_PLAY_DELAY: 3000 // 3 segundos
 };
