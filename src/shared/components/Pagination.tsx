@@ -5,16 +5,18 @@ import {useTranslation} from 'react-i18next';
 import type {Translation} from '@i18n/translation.ts';
 
 // NOTA (nov/2026): a API aceita page de 1 a 500 (o limite do TMDB), mesmo
-// quando total_pages passa disso.
+// quando total_pages passa disso. As listas da administração não têm esse
+// limite (maxPage).
 const MAX_PAGE: number = 500;
 
-export function Pagination({page, totalPages, onChange}: {
+export function Pagination({page, totalPages, onChange, maxPage = MAX_PAGE}: {
     page: number;
     totalPages: number;
     onChange: (page: number) => void;
+    maxPage?: number;
 }): ReactElement | null {
     const {t}: Translation = useTranslation();
-    const lastPage: number = Math.min(totalPages, MAX_PAGE);
+    const lastPage: number = Math.min(totalPages, maxPage);
 
     if (lastPage <= 1) return null;
 

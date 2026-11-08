@@ -1,4 +1,5 @@
 import type {Locale} from '@i18n/locales.ts';
+import type {AuditLogFilters, UserListFilters} from '@shared/types/admin/index.ts';
 import type {MovieListName, TrendingTimeWindow} from '@shared/types/movie/index.ts';
 
 type QueryParams = Record<string, string | number | undefined>;
@@ -48,6 +49,21 @@ export function readAuthLocationState(state: unknown): AuthLocationState {
     };
 }
 
+/**
+ * NOTA (nov/2026): o que o detalhe de uma conta manda para a lista depois de
+ * excluí-la (o email, para o aviso), no state da navegação — como o
+ * AuthLocationState.
+ */
+export type AdminUsersLocationState = {
+    deleted?: string | undefined;
+};
+
+export function readAdminUsersLocationState(state: unknown): AdminUsersLocationState {
+    if (typeof state !== 'object' || state === null) return {};
+    const candidate: Record<string, unknown> = state as Record<string, unknown>;
+    return {deleted: typeof candidate['deleted'] === 'string' ? candidate['deleted'] : undefined};
+}
+
 export type MovieListQuery = {
     window?: TrendingTimeWindow | undefined;
     page?: number | undefined;
@@ -64,7 +80,20 @@ export type AppPaths = {
     search: (locale: Locale, query?: string) => string;
     movie: (locale: Locale, movieId: number) => string;
     person: (locale: Locale, personId: number) => string;
+    adminUsers: (locale: Locale, query?: UserListFilters) => string;
+    adminUser: (locale: Locale, userId: number) => string;
+    auditLog: (locale: Locale, query?: AuditLogFilters) => string;
 };
+
+/** true/false da query; undefined (sem filtro) fica fora da URL. */
+function flag(value: boolean | undefined): string | undefined {
+    return value === undefined ? undefined : String(value);
+}
+
+/** A página na URL só a partir da 2. */
+function pageParam(page: number | undefined): number | undefined {
+    return page !== undefined && page > 1 ? page : undefined;
+}
 
 // NOTA (nov/2026): todas as rotas do front num lugar só, sempre com o idioma
 // na frente (/pt_BR/...). Os links da API que chegam sem idioma (ex.: o email
@@ -82,6 +111,21 @@ export const paths: AppPaths = {
     search: (locale: Locale, query: string = ''): string => withQuery(`/${locale}/movies/search`, {q: query.trim()}),
     movie: (locale: Locale, movieId: number): string => `/${locale}/movies/${movieId}`,
     person: (locale: Locale, personId: number): string => `/${locale}/person/${personId}`,
+    // NOTA (nov/2026): a administração de contas (ROLE_ADMIN). Os filtros
+    // ficam na URL: a lista filtrada pode ser recarregada e compartilhada.
+    adminUsers: (locale: Locale, query: UserListFilters = {}): string => withQuery(`/${locale}/admin/users`, {
+        page: pageParam(query.page),
+        search: query.search?.trim(),
+        role: query.role,
+        verified: flag(query.verified),
+        blocked: flag(query.blocked),
+    }),
+    adminUser: (locale: Locale, userId: number): string => `/${locale}/admin/users/${userId}`,
+    auditLog: (locale: Locale, query: AuditLogFilters = {}): string => withQuery(`/${locale}/admin/audit-log`, {
+        page: pageParam(query.page),
+        user_id: query.user_id,
+        action: query.action,
+    }),
 };
 
 /** O mesmo endereço em outro idioma: troca o primeiro segmento. */

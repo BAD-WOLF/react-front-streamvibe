@@ -63,6 +63,7 @@ export default defineConfig(({mode}: ConfigEnv): UserConfig => ({
     ],
     resolve: {
         alias: {
+            '@admin': path.resolve(__dirname, 'src/features/admin'),
             '@app': path.resolve(__dirname, 'src/app'),
             '@i18n': path.resolve(__dirname, 'src/i18n'),
             '@auth': path.resolve(__dirname, 'src/features/auth'),

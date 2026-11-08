@@ -1,6 +1,7 @@
 import type {Locale} from '@i18n/locales.ts';
 import {LanguageSwitcher} from '@layout/LanguageSwitcher.tsx';
 import {ImageWithFallback} from '@layout/figma/ImageWithFallback.tsx';
+import {includesRole, Role} from '@shared/auth/roles.ts';
 import {useSession} from '@shared/auth/useSession.ts';
 import {useLocale} from '@shared/hooks/useLocale.ts';
 import {paths} from '@shared/routing/paths.ts';
@@ -96,9 +97,14 @@ export function Header(): ReactElement {
         {label: t('Top Rated'), to: paths.movieList(locale, 'top-rated')},
         {label: t('Now Playing'), to: paths.movieList(locale, 'now-playing')},
     ];
+    // NOTA (nov/2026, papéis): a administração aparece para ROLE_ADMIN e acima.
+    const adminItems: MenuItem[] = session.user !== null && includesRole(session.user.role, Role.Admin)
+        ? [{label: t('Administration'), to: paths.adminUsers(locale)}]
+        : [];
     const accountItems: MenuItem[] = session.isAuthenticated
         ? [
             {label: t('My account'), to: paths.account(locale)},
+            ...adminItems,
             {label: t('Log out'), onClick: (): void => {
                 // NOTA (nov/2026): o endSession() esquece o token na hora (aqui e
                 // nas outras abas) e só depois espera a API apagar o cookie.

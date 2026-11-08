@@ -3,6 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@admin/*": [
+        "src/features/admin/*"
+      ],
       "@app/*": [
         "src/app/*"
       ],

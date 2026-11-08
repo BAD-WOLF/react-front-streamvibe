@@ -14,7 +14,8 @@ export type Query = Record<string, QueryValue>;
 // aceita `undefined` explícito se o tipo disser. Os services repassam o
 // `signal` (e a `query`) que receberam, que podem ser undefined.
 export type RequestOptions = {
-    method?: 'GET' | 'POST' | undefined;
+    /** NOTA (nov/2026): DELETE entrou com a administração de contas. */
+    method?: 'GET' | 'POST' | 'DELETE' | undefined;
     query?: Query | undefined;
     body?: unknown;
     /** Rota 🔒: manda o JWT e, num 401, renova a sessão e tenta de novo. */
