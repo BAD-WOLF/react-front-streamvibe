@@ -17,7 +17,9 @@ export function LanguageSwitcher(): ReactElement {
     const handleChange: (event: ChangeEvent<HTMLSelectElement>) => void = (event: ChangeEvent<HTMLSelectElement>): void => {
         const next: Locale = event.target.value as Locale;
         rememberLocale(next);
-        void navigate(switchLocalePath(location.pathname, location.search, next));
+        // NOTA (nov/2026): o state vai junto (o `next` e o email do login moram nele).
+        const state: unknown = location.state;
+        void navigate(switchLocalePath(location.pathname, location.search, next), {state});
     };
 
     return (

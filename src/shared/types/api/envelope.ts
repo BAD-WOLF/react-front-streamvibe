@@ -22,7 +22,11 @@ export type ApiErrorBody = {
     error: ApiErrorDetails;
 };
 
-/** Formato dos 401 do LexikJWTAuthenticationBundle (login, JWT e refresh). */
+/**
+ * Formato dos erros do LexikJWTAuthenticationBundle (401 do login, do JWT e
+ * do refresh) e, desde nov/2026, do 429 do login (tentativas demais) e da
+ * resposta do logout.
+ */
 export type LexikErrorBody = {
     code: number;
     message: string;

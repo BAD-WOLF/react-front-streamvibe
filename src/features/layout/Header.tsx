@@ -100,7 +100,9 @@ export function Header(): ReactElement {
         ? [
             {label: t('My account'), to: paths.account(locale)},
             {label: t('Log out'), onClick: (): void => {
-                session.endSession();
+                // NOTA (nov/2026): o endSession() esquece o token na hora (aqui e
+                // nas outras abas) e só depois espera a API apagar o cookie.
+                void session.endSession();
                 void navigate(paths.auth(locale));
             }},
         ]

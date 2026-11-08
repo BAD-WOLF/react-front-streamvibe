@@ -4,12 +4,16 @@ import type {ApiResult} from '@shared/types/api/envelope.ts';
 import type {LoginPayload, LoginResponse, RegisterPayload, RegisterResponse} from '@shared/types/auth/index.ts';
 
 /**
- * Perform user login and receive JWT + refresh token.
+ * Perform user login and receive the JWT (the access token).
  * POST /api/login_check (no locale prefix, no envelope). 401: invalid
- * credentials or account whose email was not confirmed yet.
+ * credentials or account whose email was not confirmed yet; 429: too many
+ * wrong passwords from this IP (Retry-After says how long to wait).
+ *
+ * NOTA (nov/2026): com credentials: 'include' (withCredentials), para o
+ * navegador aceitar o cookie HttpOnly do refresh token que vem na resposta.
  */
 export async function loginService(payload: LoginPayload): Promise<LoginResponse> {
-    return rawRequest<LoginResponse>('/api/login_check', {method: 'POST', body: payload});
+    return rawRequest<LoginResponse>('/api/login_check', {method: 'POST', body: payload, withCredentials: true});
 }
 
 /**
@@ -21,5 +25,6 @@ export async function registerService(locale: Locale, payload: RegisterPayload):
     return apiRequest<RegisterResponse>(locale, '/register', {method: 'POST', body: payload});
 }
 
-// NOTA (nov/2026): o refresh do JWT (POST /{locale}/api/token/refresh) saiu
-// daqui: ele é feito pelo httpClient, sozinho, quando uma rota 🔒 dá 401.
+// NOTA (nov/2026): o refresh do JWT (POST /{locale}/api/token/refresh) e o
+// logout (POST /{locale}/api/logout) ficam em shared/auth/session.service.ts:
+// a sessão é de todas as telas, não só do login.

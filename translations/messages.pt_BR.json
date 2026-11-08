@@ -108,6 +108,15 @@
       "slide": "Ir para o destaque"
     }
   },
+  "Checking": {
+    "your": {
+      "session…": "Verificando sua sessão…"
+    },
+    "the": {
+      "link...": "Conferindo o link...",
+      "API...": "Verificando a API..."
+    }
+  },
   "Change": {
     "password": "Trocar a senha"
   },
@@ -305,31 +314,7 @@
               "of": {
                 "your": {
                   "own": {
-                    "account.": {
-                      "The": {
-                        "account": {
-                          "id": {
-                            "is": {
-                              "filled": {
-                                "in": {
-                                  "when": {
-                                    "you": {
-                                      "registered": {
-                                        "on": {
-                                          "this": {
-                                            "device.": "Você pode consultar os pedidos da sua própria conta. O id da conta vem preenchido quando o cadastro foi feito neste navegador."
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
+                    "account.": "Você pode consultar os pedidos da sua própria conta."
                   }
                 }
               }
@@ -437,6 +422,7 @@
   "Session": "Sessão",
   "Email": {
     "address": "Endereço de email",
+    "confirmed": "Email confirmado",
     "verification": {
       "of": {
         "an": {
@@ -467,6 +453,13 @@
     }
   },
   "Roles": "Papéis",
+  "Confirmed": "Confirmado",
+  "Not": {
+    "confirmed": {
+      "yet": "Ainda não confirmado"
+    },
+    "found.": "Não encontrado."
+  },
   "Access": {
     "token": {
       "valid": {
@@ -478,8 +471,8 @@
     "access": {
       "token": {
         "lasts": {
-          "one": {
-            "hour": {
+          "15": {
+            "minutes": {
               "and": {
                 "is": {
                   "renewed": {
@@ -492,7 +485,11 @@
                                 "(up": {
                                   "to": {
                                     "30": {
-                                      "days).": "O token de acesso dura uma hora e é renovado sozinho enquanto a sessão está aberta (até 30 dias)."
+                                      "days": {
+                                        "without": {
+                                          "use).": "O token de acesso dura 15 minutos e é renovado sozinho enquanto a sessão estiver aberta (até 30 dias sem uso)."
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -1008,12 +1005,6 @@
       }
     }
   },
-  "Checking": {
-    "the": {
-      "link...": "Conferindo o link...",
-      "API...": "Verificando a API..."
-    }
-  },
   "Confirming...": "Confirmando...",
   "See": {
     "all": "Ver todos"
@@ -1344,9 +1335,6 @@
     "Logo": "Logo do StreamVibe"
   },
   "Menu": "Menu",
-  "Not": {
-    "found.": "Não encontrado."
-  },
   "Too": {
     "many": {
       "requests.": {
@@ -1358,6 +1346,21 @@
                   "try": {
                     "again.": "Muitas tentativas. Espere um pouco e tente de novo."
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      "login": {
+        "attempts.": {
+          "Try": {
+            "again": {
+              "in": {
+                "{{count}}": {
+                  "minutes._one": "Tentativas de login demais. Tente de novo em {{count}} minuto.",
+                  "minutes._many": "Tentativas de login demais. Tente de novo em {{count}} minutos.",
+                  "minutes._other": "Tentativas de login demais. Tente de novo em {{count}} minutos."
                 }
               }
             }

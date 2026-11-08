@@ -13,6 +13,10 @@ module.exports = {
     keySeparator: ' ',
     namespaceSeparator: false, // o nome da opção no i18next-parser (nsSeparator é do i18next)
 
+    // NOTA (nov/2026): sem os catálogos *_old.json, que o extrator criava a
+    // cada execução com as chaves removidas e que acabavam no git por engano.
+    createOldCatalogs: false,
+
     useKeysAsDefaultValue: false, // don't copy the raw key
     // NOTA (nov/2026): o valor padrão é a própria chave. Antes ele trocava "." por
     // espaço (resto de quando a chave era separada por ponto) e cortava o ponto final das frases.

@@ -102,8 +102,9 @@ export function useRepassword(locale: Locale, token?: string, initialEmail: stri
         try {
             await confirmPasswordReset(locale, {token, password});
             // NOTA (nov/2026): a API revoga todos os refresh tokens da conta; a
-            // sessão deste navegador também termina, e o login é com a senha nova.
-            session.endSession();
+            // sessão deste navegador também termina (e o cookie é apagado), e o
+            // login é com a senha nova.
+            void session.endSession();
             setMode(RepasswordMode.Done);
         } catch (err: unknown) {
             const problem: RepasswordMode | null = tokenProblem(err);

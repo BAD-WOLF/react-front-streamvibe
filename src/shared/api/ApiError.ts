@@ -57,14 +57,27 @@ export class ApiError extends Error {
     public readonly type: ApiErrorType;
     public readonly errors: string[];
     public readonly actionRequired: ApiAction | null;
+    /**
+     * NOTA (nov/2026): quantos segundos esperar antes de tentar de novo (o
+     * header Retry-After de um 429, agora exposto no CORS da API), ou null.
+     */
+    public readonly retryAfterSeconds: number | null;
 
-    public constructor(status: number, type: ApiErrorType, message: string, errors: string[] = [], actionRequired: ApiAction | null = null) {
+    public constructor(
+        status: number,
+        type: ApiErrorType,
+        message: string,
+        errors: string[] = [],
+        actionRequired: ApiAction | null = null,
+        retryAfterSeconds: number | null = null,
+    ) {
         super(message);
         this.name = 'ApiError';
         this.status = status;
         this.type = type;
         this.errors = errors;
         this.actionRequired = actionRequired;
+        this.retryAfterSeconds = retryAfterSeconds;
     }
 }
 
