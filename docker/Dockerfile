@@ -43,5 +43,12 @@ RUN npm install -g serve@14.2.4
 # copy only dist from build stage (no source, minimal)
 COPY --from=build /app/dist /app/dist
 
+# NOTA (nov/2026): os headers de segurança e de cache do servidor estático
+# (docker/serve.json): a página não abre dentro de iframe de outro site
+# (frame-ancestors, que não vale na <meta> da CSP), os arquivos de assets/
+# (com hash no nome) ficam no cache por um ano e o index.html é sempre
+# conferido, para um deploy novo valer na hora.
+COPY docker/serve.json /app/serve.json
+
 # Lightweight static server; -s: unknown routes get index.html (React Router)
-CMD ["serve", "-s", "dist", "-l", "5173"]
+CMD ["serve", "-s", "dist", "-l", "5173", "-c", "/app/serve.json"]
