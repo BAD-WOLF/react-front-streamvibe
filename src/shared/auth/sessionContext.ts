@@ -1,3 +1,4 @@
+import type {Role} from '@shared/auth/roles.ts';
 import {type Context, createContext} from 'react';
 
 // NOTA (nov/2026): a sessão agora começa "restoring": ao abrir a página, o
@@ -10,11 +11,13 @@ export enum SessionStatus {
     Anonymous = 'anonymous',
 }
 
+// NOTA (nov/2026, papéis): `roles` e `isAdmin` viraram `role`, o papel da
+// conta na hierarquia (o mais alto do claim `roles` do JWT). O que ele permite
+// sai de includesRole() (roles.ts), o espelho da hierarquia da API.
 export type SessionUser = {
     /** O `username` do JWT, que é o email da conta. */
     email: string;
-    roles: string[];
-    isAdmin: boolean;
+    role: Role;
 };
 
 export type SessionValue = {

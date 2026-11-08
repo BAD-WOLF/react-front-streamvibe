@@ -4,6 +4,7 @@ import SessionCard from '@auth/account/components/SessionCard.tsx';
 import VerificationStatusCard from '@auth/account/components/VerificationStatusCard.tsx';
 import {getCurrentUser} from '@auth/account/services/account.service.ts';
 import type {Locale} from '@i18n/locales.ts';
+import {includesRole, Role} from '@shared/auth/roles.ts';
 import {useSession} from '@shared/auth/useSession.ts';
 import {type AsyncState, useAsync} from '@shared/hooks/useAsync.ts';
 import {useDocumentTitle} from '@shared/hooks/useDocumentTitle.ts';
@@ -40,7 +41,7 @@ export default function Account(): ReactElement {
             <SessionCard account={currentUser.data}/>
             <PasswordResetCard/>
             <ResetRequestsCard key={currentUser.data?.id ?? 'loading'} accountId={currentUser.data?.id ?? null}/>
-            {session.user?.isAdmin === true && <VerificationStatusCard/>}
+            {session.user !== null && includesRole(session.user.role, Role.Admin) && <VerificationStatusCard/>}
         </div>
     );
 }

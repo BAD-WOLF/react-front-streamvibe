@@ -1,6 +1,7 @@
 import {preferredLocale} from '@i18n/locales.ts';
 import {decodeClaims, type JwtClaims, onAccessTokenChange, readAccessToken} from '@shared/auth/accessToken.ts';
 import {forgetLegacyStorage, onSessionSignal, SessionSignal} from '@shared/auth/crossTab.ts';
+import {highestRoleOf} from '@shared/auth/roles.ts';
 import {endSession, forgetSession, refreshAccessToken, restoreSession, startSession} from '@shared/auth/session.service.ts';
 import {SessionContext, SessionStatus, type SessionUser, type SessionValue} from '@shared/auth/sessionContext.ts';
 import {type Dispatch, type ReactElement, type ReactNode, type SetStateAction, useEffect, useMemo, useState} from 'react';
@@ -16,7 +17,7 @@ function readSnapshot(): SessionSnapshot {
     if (claims === null) return {user: null, expiresAt: null};
 
     return {
-        user: {email: claims.username, roles: claims.roles, isAdmin: claims.roles.includes('ROLE_ADMIN')},
+        user: {email: claims.username, role: highestRoleOf(claims.roles)},
         expiresAt: new Date(claims.exp * 1000),
     };
 }

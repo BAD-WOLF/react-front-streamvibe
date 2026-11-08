@@ -96,7 +96,12 @@
         }
       }
     },
-    "week": "Esta semana"
+    "week": "Esta semana",
+    "cannot": {
+      "be": {
+        "undone.": "Esto no se puede deshacer."
+      }
+    }
   },
   "Go": {
     "to": {
@@ -118,7 +123,8 @@
     }
   },
   "Change": {
-    "password": "Cambiar la contraseña"
+    "password": "Cambiar la contraseña",
+    "role": "Cambiar el rol"
   },
   "We": {
     "will": {
@@ -212,6 +218,13 @@
       "in": {
         "{{seconds}}s": "Enviar de nuevo en {{seconds}}s"
       }
+    },
+    "the": {
+      "confirmation": {
+        "email": {
+          "again": "Enviar de nuevo el correo de confirmación"
+        }
+      }
     }
   },
   "Type": {
@@ -274,7 +287,8 @@
       "reset": {
         "requests": "Solicitudes de cambio de contraseña activas"
       }
-    }
+    },
+    "sessions": "Sesiones activas"
   },
   "As": {
     "an": {
@@ -334,6 +348,41 @@
             }
           }
         }
+      },
+      "see": {
+        "this": {
+          "account,": {
+            "but": {
+              "not": {
+                "change": {
+                  "it:": {
+                    "it": {
+                      "is": {
+                        "your": {
+                          "own,": {
+                            "or": {
+                              "its": {
+                                "role": {
+                                  "is": {
+                                    "not": {
+                                      "below": {
+                                        "yours.": "Puedes ver esta cuenta, pero no cambiarla: es la tuya, o su rol no está por debajo del tuyo."
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "will": {
@@ -376,7 +425,12 @@
           }
         }
       }
-    }
+    },
+    "role": "Rol de la cuenta",
+    "details": "Datos de la cuenta",
+    "blocked": "Cuenta bloqueada",
+    "unblocked": "Cuenta desbloqueada",
+    "deleted": "Cuenta eliminada"
   },
   "Look": {
     "up": "Consultar"
@@ -411,10 +465,33 @@
           "language.": "Sin biografía en este idioma."
         }
       }
+    },
+    "account": {
+      "matches": {
+        "these": {
+          "filters.": "Ninguna cuenta con estos filtros."
+        }
+      }
+    },
+    "entry": {
+      "matches": {
+        "these": {
+          "filters.": "Ninguna entrada con estos filtros."
+        }
+      }
     }
   },
   "Requested": {
-    "at": "Solicitado el"
+    "at": "Solicitado el",
+    "on": {
+      "{{requested}},": {
+        "valid": {
+          "until": {
+            "{{expires}}": "Solicitada el {{requested}}, válida hasta {{expires}}"
+          }
+        }
+      }
+    }
   },
   "Expires": {
     "at": "Vence el"
@@ -450,22 +527,27 @@
     },
     "is": {
       "required.": "El correo es obligatorio."
+    },
+    "confirmation": "Confirmación del correo",
+    "or": {
+      "id": "Correo o id"
     }
   },
-  "Roles": "Roles",
   "Confirmed": "Confirmado",
   "Not": {
     "confirmed": {
       "yet": "Aún no confirmado"
     },
-    "found.": "No encontrado."
+    "found.": "No encontrado.",
+    "blocked": "No bloqueada"
   },
   "Access": {
     "token": {
       "valid": {
         "until": "Token de acceso válido hasta"
       }
-    }
+    },
+    "denied": "Acceso denegado"
   },
   "The": {
     "access": {
@@ -564,6 +646,121 @@
           }
         }
       }
+    },
+    "account": {
+      "is": {
+        "blocked;": {
+          "sessions": {
+            "ended:": {
+              "{{count}}._one": "La cuenta fue bloqueada; sesiones cerradas: {{count}}.",
+              "{{count}}._many": "La cuenta fue bloqueada; sesiones cerradas: {{count}}.",
+              "{{count}}._other": "La cuenta fue bloqueada; sesiones cerradas: {{count}}."
+            }
+          }
+        },
+        "unblocked.": "La cuenta fue desbloqueada."
+      },
+      "cannot": {
+        "log": {
+          "in": {
+            "until": {
+              "the": {
+                "email": {
+                  "is": {
+                    "confirmed.": "La cuenta no puede iniciar sesión hasta que se confirme el correo."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "can": {
+        "log": {
+          "in": {
+            "again;": {
+              "the": {
+                "block": {
+                  "reason": {
+                    "stays": {
+                      "in": {
+                        "the": {
+                          "audit": {
+                            "log.": "La cuenta puede volver a iniciar sesión; el motivo del bloqueo queda en el registro de auditoría."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "{{email}}": {
+        "was": {
+          "deleted.": "La cuenta {{email}} fue eliminada."
+        }
+      }
+    },
+    "role": {
+      "is": {
+        "now": {
+          "{{role}}.": "El rol ahora es {{role}}."
+        }
+      }
+    },
+    "email": {
+      "of": {
+        "the": {
+          "account": {
+            "is": {
+              "confirmed.": "El correo de la cuenta fue confirmado."
+            }
+          }
+        }
+      }
+    },
+    "confirmation": {
+      "email": {
+        "was": {
+          "sent": {
+            "again.": "El correo de confirmación fue enviado de nuevo."
+          }
+        }
+      }
+    },
+    "account,": {
+      "its": {
+        "password": {
+          "reset": {
+            "requests": {
+              "and": {
+                "its": {
+                  "sessions": {
+                    "are": {
+                      "deleted.": {
+                        "The": {
+                          "audit": {
+                            "log": {
+                              "keeps": {
+                                "its": {
+                                  "entries.": "Se eliminan la cuenta, sus solicitudes de cambio de contraseña y sus sesiones. El registro de auditoría conserva sus entradas."
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "Log": {
@@ -598,6 +795,9 @@
     },
     "my": {
       "email": "Confirmar mi correo"
+    },
+    "the": {
+      "email": "Confirmar el correo"
     }
   },
   "I": {
@@ -687,6 +887,19 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      "does": {
+        "not": {
+          "have": {
+            "access": {
+              "to": {
+                "this": {
+                  "page.": "Tu cuenta no tiene acceso a esta página."
                 }
               }
             }
@@ -990,7 +1203,10 @@
   },
   "Back": {
     "to": {
-      "login": "Volver al inicio de sesión"
+      "login": "Volver al inicio de sesión",
+      "the": {
+        "accounts": "Volver a las cuentas"
+      }
     }
   },
   "Invalid": {
@@ -1007,11 +1223,33 @@
   },
   "Confirming...": "Confirmando...",
   "See": {
-    "all": "Ver todos"
+    "all": "Ver todos",
+    "it": {
+      "all": {
+        "in": {
+          "the": {
+            "audit": {
+              "log": "Ver todo en el registro de auditoría"
+            }
+          }
+        }
+      }
+    }
   },
   "Nothing": {
     "here": {
       "yet.": "Nada aquí todavía."
+    },
+    "was": {
+      "done": {
+        "to": {
+          "this": {
+            "account": {
+              "yet.": "Todavía no se hizo nada en esta cuenta."
+            }
+          }
+        }
+      }
     }
   },
   "Loading...": "Cargando...",
@@ -1139,7 +1377,14 @@
   "Part": {
     "of": {
       "the": {
-        "collection": "Forma parte de la colección"
+        "collection": "Forma parte de la colección",
+        "email,": {
+          "or": {
+            "the": {
+              "id": "Parte del correo, o el id"
+            }
+          }
+        }
       }
     }
   },
@@ -1185,6 +1430,11 @@
         "\"{{query}}\"_many": "{{count}} resultados para \"{{query}}\"",
         "\"{{query}}\"_other": "{{count}} resultados para \"{{query}}\""
       }
+    },
+    "accounts": {
+      "found_one": "{{count}} cuenta encontrada",
+      "found_many": "{{count}} cuentas encontradas",
+      "found_other": "{{count}} cuentas encontradas"
     }
   },
   "Official": {
@@ -1196,7 +1446,9 @@
   "Teasers": "Teasers",
   "Clips": "Clips",
   "All": {
-    "videos": "Todos los videos"
+    "videos": "Todos los videos",
+    "actions": "Todas las acciones",
+    "roles": "Todos los roles"
   },
   "About": {
     "the": {
@@ -1413,5 +1665,159 @@
     "again": "Intentar de nuevo"
   },
   "Close": "Cerrar",
-  "Pagination": "Paginación"
+  "Pagination": "Paginación",
+  "Blocked": "Bloqueada",
+  "Administration": "Administración",
+  "Accounts": "Cuentas",
+  "Audit": {
+    "log": "Registro de auditoría"
+  },
+  "Action": "Acción",
+  "Apply": "Aplicar",
+  "When": "Cuándo",
+  "Done": {
+    "by": "Hecho por"
+  },
+  "Affected": {
+    "account": "Cuenta afectada"
+  },
+  "What": {
+    "changed": "Qué cambió",
+    "was": {
+      "done": {
+        "to": {
+          "the": {
+            "accounts,": {
+              "by": {
+                "whom": {
+                  "and": {
+                    "when.": "Qué se hizo en las cuentas, quién y cuándo."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Console": {
+    "(server)": "Consola (servidor)"
+  },
+  "Actions": "Acciones",
+  "Block": {
+    "the": {
+      "account": "Bloquear la cuenta"
+    },
+    "reason": "Motivo del bloqueo",
+    "date": "Fecha del bloqueo",
+    "status": "Bloqueo"
+  },
+  "Other": {
+    "admins": {
+      "read": {
+        "it;": {
+          "it": {
+            "stays": {
+              "in": {
+                "the": {
+                  "audit": {
+                    "log.": "Otros admins lo leerán; queda en el registro de auditoría."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Unblock": {
+    "the": {
+      "account": "Desbloquear la cuenta"
+    }
+  },
+  "End": {
+    "all": {
+      "sessions": "Cerrar todas las sesiones"
+    }
+  },
+  "Every": {
+    "browser": {
+      "of": {
+        "the": {
+          "account": {
+            "needs": {
+              "a": {
+                "new": {
+                  "login": {
+                    "within": {
+                      "15": {
+                        "minutes.": "Cada navegador de la cuenta tendrá que iniciar sesión de nuevo en hasta 15 minutos."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Sessions": {
+    "ended:": {
+      "{{count}}._one": "Sesiones cerradas: {{count}}.",
+      "{{count}}._many": "Sesiones cerradas: {{count}}.",
+      "{{count}}._other": "Sesiones cerradas: {{count}}."
+    },
+    "ended": "Sesiones cerradas"
+  },
+  "Delete": {
+    "the": {
+      "account": "Eliminar la cuenta"
+    },
+    "{{email}}?": "¿Eliminar {{email}}?"
+  },
+  "Cancel": "Cancelar",
+  "Created": {
+    "on": "Creada el"
+  },
+  "Last": {
+    "login": "Último inicio de sesión"
+  },
+  "Never": "Nunca",
+  "None.": "Ninguna.",
+  "Any": {
+    "email": {
+      "status": "Confirmadas o no"
+    },
+    "block": {
+      "status": "Bloqueadas o no"
+    }
+  },
+  "History": "Historial",
+  "Manual": {
+    "email": {
+      "confirmation": "Correo confirmado por un admin"
+    }
+  },
+  "Confirmation": {
+    "email": {
+      "sent": {
+        "again": "Correo de confirmación reenviado"
+      }
+    }
+  },
+  "Role": {
+    "changed": "Rol cambiado"
+  },
+  "Former": {
+    "role": "Rol anterior",
+    "reason": "Motivo anterior"
+  },
+  "User": "Usuario",
+  "Developer": "Desarrollador",
+  "Administrator": "Administrador",
+  "Owner": "Propietario"
 }

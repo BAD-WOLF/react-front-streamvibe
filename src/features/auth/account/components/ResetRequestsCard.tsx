@@ -1,5 +1,6 @@
 import {getUserResetRequests} from '@auth/repassword/services/repassword.service.ts';
 import type {Locale} from '@i18n/locales.ts';
+import {includesRole, Role} from '@shared/auth/roles.ts';
 import {useSession} from '@shared/auth/useSession.ts';
 import {EmptyState} from '@shared/components/feedback/EmptyState.tsx';
 import {ErrorMessage} from '@shared/components/feedback/ErrorMessage.tsx';
@@ -53,7 +54,7 @@ export default function ResetRequestsCard({accountId}: { accountId: number | nul
         <section className={accountClasses.card}>
             <h2 className={accountClasses.cardTitle}>{t('Active password reset requests')}</h2>
             <p className={accountClasses.cardText}>
-                {session.user?.isAdmin === true
+                {session.user !== null && includesRole(session.user.role, Role.Admin)
                     ? t('As an administrator, you can look up the requests of any account by its id.')
                     : t('You can look up the requests of your own account.')}
             </p>

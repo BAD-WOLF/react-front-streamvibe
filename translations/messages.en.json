@@ -96,7 +96,12 @@
         }
       }
     },
-    "week": "This week"
+    "week": "This week",
+    "cannot": {
+      "be": {
+        "undone.": "This cannot be undone."
+      }
+    }
   },
   "Go": {
     "to": {
@@ -118,7 +123,8 @@
     }
   },
   "Change": {
-    "password": "Change password"
+    "password": "Change password",
+    "role": "Change role"
   },
   "We": {
     "will": {
@@ -212,6 +218,13 @@
       "in": {
         "{{seconds}}s": "Send again in {{seconds}}s"
       }
+    },
+    "the": {
+      "confirmation": {
+        "email": {
+          "again": "Send the confirmation email again"
+        }
+      }
     }
   },
   "Type": {
@@ -274,7 +287,8 @@
       "reset": {
         "requests": "Active password reset requests"
       }
-    }
+    },
+    "sessions": "Active sessions"
   },
   "As": {
     "an": {
@@ -334,6 +348,41 @@
             }
           }
         }
+      },
+      "see": {
+        "this": {
+          "account,": {
+            "but": {
+              "not": {
+                "change": {
+                  "it:": {
+                    "it": {
+                      "is": {
+                        "your": {
+                          "own,": {
+                            "or": {
+                              "its": {
+                                "role": {
+                                  "is": {
+                                    "not": {
+                                      "below": {
+                                        "yours.": "You can see this account, but not change it: it is your own, or its role is not below yours."
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
     "will": {
@@ -376,7 +425,12 @@
           }
         }
       }
-    }
+    },
+    "role": "Account role",
+    "details": "Account details",
+    "blocked": "Account blocked",
+    "unblocked": "Account unblocked",
+    "deleted": "Account deleted"
   },
   "Look": {
     "up": "Look up"
@@ -411,10 +465,33 @@
           "language.": "No biography in this language."
         }
       }
+    },
+    "account": {
+      "matches": {
+        "these": {
+          "filters.": "No account matches these filters."
+        }
+      }
+    },
+    "entry": {
+      "matches": {
+        "these": {
+          "filters.": "No entry matches these filters."
+        }
+      }
     }
   },
   "Requested": {
-    "at": "Requested at"
+    "at": "Requested at",
+    "on": {
+      "{{requested}},": {
+        "valid": {
+          "until": {
+            "{{expires}}": "Requested on {{requested}}, valid until {{expires}}"
+          }
+        }
+      }
+    }
   },
   "Expires": {
     "at": "Expires at"
@@ -450,22 +527,27 @@
     },
     "is": {
       "required.": "Email is required."
+    },
+    "confirmation": "Email confirmation",
+    "or": {
+      "id": "Email or id"
     }
   },
-  "Roles": "Roles",
   "Confirmed": "Confirmed",
   "Not": {
     "confirmed": {
       "yet": "Not confirmed yet"
     },
-    "found.": "Not found."
+    "found.": "Not found.",
+    "blocked": "Not blocked"
   },
   "Access": {
     "token": {
       "valid": {
         "until": "Access token valid until"
       }
-    }
+    },
+    "denied": "Access denied"
   },
   "The": {
     "access": {
@@ -564,6 +646,120 @@
           }
         }
       }
+    },
+    "account": {
+      "is": {
+        "blocked;": {
+          "sessions": {
+            "ended:": {
+              "{{count}}._one": "The account is blocked; sessions ended: {{count}}.",
+              "{{count}}._other": "The account is blocked; sessions ended: {{count}}."
+            }
+          }
+        },
+        "unblocked.": "The account is unblocked."
+      },
+      "cannot": {
+        "log": {
+          "in": {
+            "until": {
+              "the": {
+                "email": {
+                  "is": {
+                    "confirmed.": "The account cannot log in until the email is confirmed."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "can": {
+        "log": {
+          "in": {
+            "again;": {
+              "the": {
+                "block": {
+                  "reason": {
+                    "stays": {
+                      "in": {
+                        "the": {
+                          "audit": {
+                            "log.": "The account can log in again; the block reason stays in the audit log."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "{{email}}": {
+        "was": {
+          "deleted.": "The account {{email}} was deleted."
+        }
+      }
+    },
+    "role": {
+      "is": {
+        "now": {
+          "{{role}}.": "The role is now {{role}}."
+        }
+      }
+    },
+    "email": {
+      "of": {
+        "the": {
+          "account": {
+            "is": {
+              "confirmed.": "The email of the account is confirmed."
+            }
+          }
+        }
+      }
+    },
+    "confirmation": {
+      "email": {
+        "was": {
+          "sent": {
+            "again.": "The confirmation email was sent again."
+          }
+        }
+      }
+    },
+    "account,": {
+      "its": {
+        "password": {
+          "reset": {
+            "requests": {
+              "and": {
+                "its": {
+                  "sessions": {
+                    "are": {
+                      "deleted.": {
+                        "The": {
+                          "audit": {
+                            "log": {
+                              "keeps": {
+                                "its": {
+                                  "entries.": "The account, its password reset requests and its sessions are deleted. The audit log keeps its entries."
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "Log": {
@@ -598,6 +794,9 @@
     },
     "my": {
       "email": "Confirm my email"
+    },
+    "the": {
+      "email": "Confirm the email"
     }
   },
   "I": {
@@ -687,6 +886,19 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      "does": {
+        "not": {
+          "have": {
+            "access": {
+              "to": {
+                "this": {
+                  "page.": "Your account does not have access to this page."
                 }
               }
             }
@@ -988,7 +1200,10 @@
   },
   "Back": {
     "to": {
-      "login": "Back to login"
+      "login": "Back to login",
+      "the": {
+        "accounts": "Back to the accounts"
+      }
     }
   },
   "Invalid": {
@@ -1005,11 +1220,33 @@
   },
   "Confirming...": "Confirming...",
   "See": {
-    "all": "See all"
+    "all": "See all",
+    "it": {
+      "all": {
+        "in": {
+          "the": {
+            "audit": {
+              "log": "See it all in the audit log"
+            }
+          }
+        }
+      }
+    }
   },
   "Nothing": {
     "here": {
       "yet.": "Nothing here yet."
+    },
+    "was": {
+      "done": {
+        "to": {
+          "this": {
+            "account": {
+              "yet.": "Nothing was done to this account yet."
+            }
+          }
+        }
+      }
     }
   },
   "Loading...": "Loading...",
@@ -1137,7 +1374,14 @@
   "Part": {
     "of": {
       "the": {
-        "collection": "Part of the collection"
+        "collection": "Part of the collection",
+        "email,": {
+          "or": {
+            "the": {
+              "id": "Part of the email, or the id"
+            }
+          }
+        }
       }
     }
   },
@@ -1180,6 +1424,10 @@
         "\"{{query}}\"_one": "{{count}} result for \"{{query}}\"",
         "\"{{query}}\"_other": "{{count}} results for \"{{query}}\""
       }
+    },
+    "accounts": {
+      "found_one": "{{count}} account found",
+      "found_other": "{{count}} accounts found"
     }
   },
   "Official": {
@@ -1191,7 +1439,9 @@
   "Teasers": "Teasers",
   "Clips": "Clips",
   "All": {
-    "videos": "All videos"
+    "videos": "All videos",
+    "actions": "All actions",
+    "roles": "All roles"
   },
   "About": {
     "the": {
@@ -1407,5 +1657,158 @@
     "again": "Try again"
   },
   "Close": "Close",
-  "Pagination": "Pagination"
+  "Pagination": "Pagination",
+  "Blocked": "Blocked",
+  "Administration": "Administration",
+  "Accounts": "Accounts",
+  "Audit": {
+    "log": "Audit log"
+  },
+  "Action": "Action",
+  "Apply": "Apply",
+  "When": "When",
+  "Done": {
+    "by": "Done by"
+  },
+  "Affected": {
+    "account": "Affected account"
+  },
+  "What": {
+    "changed": "What changed",
+    "was": {
+      "done": {
+        "to": {
+          "the": {
+            "accounts,": {
+              "by": {
+                "whom": {
+                  "and": {
+                    "when.": "What was done to the accounts, by whom and when."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Console": {
+    "(server)": "Console (server)"
+  },
+  "Actions": "Actions",
+  "Block": {
+    "the": {
+      "account": "Block the account"
+    },
+    "reason": "Block reason",
+    "date": "Block date",
+    "status": "Block status"
+  },
+  "Other": {
+    "admins": {
+      "read": {
+        "it;": {
+          "it": {
+            "stays": {
+              "in": {
+                "the": {
+                  "audit": {
+                    "log.": "Other admins read it; it stays in the audit log."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Unblock": {
+    "the": {
+      "account": "Unblock the account"
+    }
+  },
+  "End": {
+    "all": {
+      "sessions": "End all sessions"
+    }
+  },
+  "Every": {
+    "browser": {
+      "of": {
+        "the": {
+          "account": {
+            "needs": {
+              "a": {
+                "new": {
+                  "login": {
+                    "within": {
+                      "15": {
+                        "minutes.": "Every browser of the account needs a new login within 15 minutes."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Sessions": {
+    "ended:": {
+      "{{count}}._one": "Sessions ended: {{count}}.",
+      "{{count}}._other": "Sessions ended: {{count}}."
+    },
+    "ended": "Sessions ended"
+  },
+  "Delete": {
+    "the": {
+      "account": "Delete the account"
+    },
+    "{{email}}?": "Delete {{email}}?"
+  },
+  "Cancel": "Cancel",
+  "Created": {
+    "on": "Created on"
+  },
+  "Last": {
+    "login": "Last login"
+  },
+  "Never": "Never",
+  "None.": "None.",
+  "Any": {
+    "email": {
+      "status": "Any email status"
+    },
+    "block": {
+      "status": "Any block status"
+    }
+  },
+  "History": "History",
+  "Manual": {
+    "email": {
+      "confirmation": "Manual email confirmation"
+    }
+  },
+  "Confirmation": {
+    "email": {
+      "sent": {
+        "again": "Confirmation email sent again"
+      }
+    }
+  },
+  "Role": {
+    "changed": "Role changed"
+  },
+  "Former": {
+    "role": "Former role",
+    "reason": "Former reason"
+  },
+  "User": "User",
+  "Developer": "Developer",
+  "Administrator": "Administrator",
+  "Owner": "Owner"
 }

@@ -1,0 +1,48 @@
+// noinspection TypeScriptExplicitMemberType
+
+// NOTA (nov/2026): a administração de contas (lista, detalhe e log de
+// auditoria). Mesma linguagem visual da página da conta (AccountStyles):
+// cartões translúcidos, o gradiente roxo→vinho nos botões principais.
+export const adminClasses = {
+    page: "max-w-6xl mx-auto w-full px-4 sm:px-6 md:px-8 pt-24 pb-12 text-white space-y-6",
+    header: "flex flex-col gap-4 md:flex-row md:items-end md:justify-between",
+    title: "text-3xl md:text-4xl font-black text-[#F0F4F8] drop-shadow-xl",
+    subtitle: "text-sm text-white/70",
+    nav: "flex flex-wrap gap-2",
+    navLink: "rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/80 hover:bg-white/10 transition",
+    navLinkActive: "rounded-full border border-[#5B21B6] bg-[#5B21B6]/40 px-4 py-1.5 text-sm font-semibold text-white",
+    card: "rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6 space-y-4",
+    cardTitle: "text-lg font-semibold",
+    cardText: "text-sm text-white/70 leading-relaxed",
+    filters: "grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_auto] lg:items-end",
+    field: "flex flex-col gap-1 text-sm",
+    label: "text-xs uppercase tracking-wide text-white/50",
+    input: "rounded-md border border-white/20 bg-[#0E1B2E] px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#5B21B6]",
+    textarea: "min-h-24 rounded-md border border-white/20 bg-[#0E1B2E] px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#5B21B6]",
+    button: "inline-flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-[#5B21B6] to-[#9B111E] px-4 py-2 text-sm font-semibold text-white hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer",
+    secondaryButton: "inline-flex items-center justify-center gap-2 rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm text-white hover:bg-white/20 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer",
+    dangerButton: "inline-flex items-center justify-center gap-2 rounded-md border border-red-500/60 bg-red-500/20 px-4 py-2 text-sm font-semibold text-red-50 hover:bg-red-500/30 transition disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer",
+    tableWrapper: "overflow-x-auto",
+    table: "w-full min-w-[720px] text-left text-sm",
+    tableHead: "text-xs uppercase tracking-wide text-white/50",
+    tableHeadCell: "py-2 pr-4 font-medium",
+    tableCell: "py-3 pr-4 border-t border-white/10 align-top",
+    link: "text-white hover:text-[#C4B5FD] underline-offset-4 hover:underline",
+    muted: "text-white/50",
+    facts: "grid grid-cols-1 gap-4 text-sm sm:grid-cols-2 lg:grid-cols-3",
+    fact: "space-y-1",
+    flags: "flex flex-wrap items-center gap-2",
+    flag: "inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap",
+    flagTones: {
+        ok: "bg-emerald-500/20 text-emerald-100",
+        warning: "bg-amber-500/20 text-amber-100",
+        danger: "bg-red-500/25 text-red-100",
+    },
+    actions: "grid grid-cols-1 gap-4 lg:grid-cols-2",
+    action: "rounded-xl border border-white/10 bg-black/20 p-4 space-y-3",
+    actionTitle: "text-sm font-semibold",
+    actionRow: "flex flex-wrap items-center gap-3",
+    details: "space-y-0.5 text-xs text-white/70",
+    confirm: "space-y-4 text-sm",
+    confirmActions: "flex flex-wrap justify-end gap-3",
+};
