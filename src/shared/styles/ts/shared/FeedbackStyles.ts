@@ -1,6 +1,8 @@
 // noinspection TypeScriptExplicitMemberType
 
 export const feedbackClasses = {
+    // NOTA (nov/2026): a tela inteira, enquanto a sessão é recuperada pelo cookie (ProtectedRoute, Auth).
+    loaderPage: "min-h-lvh w-full flex items-center justify-center bg-gradient-to-br from-[#0E7490] via-[#1E3A5F] to-[#3D3D3D]",
     loaderContainer: "flex flex-col items-center justify-center gap-3 py-12 text-white/70",
     loaderSpinner: "w-10 h-10 rounded-full border-4 border-white/15 border-t-[#5B21B6] animate-spin",
     loaderInline: "inline-block w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin align-middle",

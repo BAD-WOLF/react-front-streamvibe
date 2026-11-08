@@ -12,11 +12,11 @@ import {ErrorMessage} from "@shared/components/feedback/ErrorMessage.tsx";
 import {Loader} from "@shared/components/feedback/Loader.tsx";
 import {useDocumentTitle} from "@shared/hooks/useDocumentTitle.ts";
 import {useLocale} from "@shared/hooks/useLocale.ts";
-import {paths} from "@shared/routing/paths.ts";
+import {paths, readAuthLocationState} from "@shared/routing/paths.ts";
 import {authClasses} from "@shared/styles/ts/login/AuthStyles.ts";
 import type {ReactElement} from "react";
 import {useTranslation} from "react-i18next";
-import {Link, type NavigateFunction, type SetURLSearchParams, useNavigate, useParams, useSearchParams} from "react-router-dom";
+import {Link, type Location, type NavigateFunction, useLocation, useNavigate, useParams} from "react-router-dom";
 import type {Translation} from '@i18n/translation.ts';
 import {hasText} from '@shared/utils/guards.ts';
 
@@ -24,13 +24,15 @@ import {hasText} from '@shared/utils/guards.ts';
 // (o LocaleLayout põe o idioma na frente). O idioma vinha de um parâmetro
 // `locale` que a rota não tinha (ela se chama `_locale`): a troca de senha
 // sempre usava pt_BR. Agora vem do useLocale().
+// O email já digitado no login chega no state da navegação, e não mais em
+// ?email= na URL.
 export default function Repassword(): ReactElement {
     const {t}: Translation = useTranslation();
     const locale: Locale = useLocale();
     const navigate: NavigateFunction = useNavigate();
     const {token}: Readonly<Partial<{ token: string }>> = useParams<{ token: string }>();
-    const [searchParams]: [URLSearchParams, SetURLSearchParams] = useSearchParams();
-    const state: UseRepasswordReturn = useRepassword(locale, token, searchParams.get("email") ?? "");
+    const location: Location = useLocation();
+    const state: UseRepasswordReturn = useRepassword(locale, token, readAuthLocationState(location.state).email ?? "");
     useDocumentTitle(t("Reset password"));
 
     const requestNew: () => void = (): void => {

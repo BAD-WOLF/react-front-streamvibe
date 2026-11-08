@@ -108,6 +108,15 @@
       "slide": "Go to slide"
     }
   },
+  "Checking": {
+    "your": {
+      "session…": "Checking your session…"
+    },
+    "the": {
+      "link...": "Checking the link...",
+      "API...": "Checking the API..."
+    }
+  },
   "Change": {
     "password": "Change password"
   },
@@ -305,31 +314,7 @@
               "of": {
                 "your": {
                   "own": {
-                    "account.": {
-                      "The": {
-                        "account": {
-                          "id": {
-                            "is": {
-                              "filled": {
-                                "in": {
-                                  "when": {
-                                    "you": {
-                                      "registered": {
-                                        "on": {
-                                          "this": {
-                                            "device.": "You can look up the requests of your own account. The account id is filled in when you registered on this device."
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
+                    "account.": "You can look up the requests of your own account."
                   }
                 }
               }
@@ -437,6 +422,7 @@
   "Session": "Session",
   "Email": {
     "address": "Email address",
+    "confirmed": "Email confirmed",
     "verification": {
       "of": {
         "an": {
@@ -467,6 +453,13 @@
     }
   },
   "Roles": "Roles",
+  "Confirmed": "Confirmed",
+  "Not": {
+    "confirmed": {
+      "yet": "Not confirmed yet"
+    },
+    "found.": "Not found."
+  },
   "Access": {
     "token": {
       "valid": {
@@ -478,8 +471,8 @@
     "access": {
       "token": {
         "lasts": {
-          "one": {
-            "hour": {
+          "15": {
+            "minutes": {
               "and": {
                 "is": {
                   "renewed": {
@@ -492,7 +485,11 @@
                                 "(up": {
                                   "to": {
                                     "30": {
-                                      "days).": "The access token lasts one hour and is renewed automatically while your session is open (up to 30 days)."
+                                      "days": {
+                                        "without": {
+                                          "use).": "The access token lasts 15 minutes and is renewed automatically while your session is open (up to 30 days without use)."
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -1006,12 +1003,6 @@
       }
     }
   },
-  "Checking": {
-    "the": {
-      "link...": "Checking the link...",
-      "API...": "Checking the API..."
-    }
-  },
   "Confirming...": "Confirming...",
   "See": {
     "all": "See all"
@@ -1339,9 +1330,6 @@
     "Logo": "StreamVibe Logo"
   },
   "Menu": "Menu",
-  "Not": {
-    "found.": "Not found."
-  },
   "Too": {
     "many": {
       "requests.": {
@@ -1353,6 +1341,20 @@
                   "try": {
                     "again.": "Too many requests. Please wait a moment and try again."
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      "login": {
+        "attempts.": {
+          "Try": {
+            "again": {
+              "in": {
+                "{{count}}": {
+                  "minutes._one": "Too many login attempts. Try again in {{count}} minute.",
+                  "minutes._other": "Too many login attempts. Try again in {{count}} minutes."
                 }
               }
             }

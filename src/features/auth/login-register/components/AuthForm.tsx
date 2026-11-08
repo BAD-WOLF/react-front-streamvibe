@@ -8,7 +8,7 @@ import type {Locale} from "@i18n/locales.ts";
 import InputFieldGroup from "@shared/components/auth/InputFieldGroup.tsx";
 import PasswordStrengthBar from "@shared/components/auth/PasswordStrengthBar.tsx";
 import {ErrorMessage} from "@shared/components/feedback/ErrorMessage.tsx";
-import {paths} from "@shared/routing/paths.ts";
+import {type AuthLocationState, paths} from "@shared/routing/paths.ts";
 import {authClasses} from "@shared/styles/ts/login/AuthStyles.ts";
 import * as styles from "@shared/styles/ts/login/LoginPageStyles.ts";
 import type {InputField} from "@shared/types/InputField.ts";
@@ -132,7 +132,7 @@ export default function AuthForm({
 
             {!isRegister && (
                 <div className={authClasses.linkRow}>
-                    <Link className={authClasses.link} to={paths.repassword(locale, {email: textOr(email.trim(), undefined)})}>
+                    <Link className={authClasses.link} to={paths.repassword(locale)} state={{email: textOr(email.trim(), undefined)} satisfies AuthLocationState}>
                         {t("Forgot your password?")}
                     </Link>
                     <button type="button" className={authClasses.link} onClick={(): void => setShowResend(!showResend)}>

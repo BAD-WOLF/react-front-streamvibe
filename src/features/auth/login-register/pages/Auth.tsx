@@ -7,21 +7,31 @@ import {AuthMode} from "@auth/login-register/types/AuthMode.ts";
 import type {RegistrationResult} from "@auth/login-register/types/RegistrationResult.ts";
 import type {Locale} from "@i18n/locales.ts";
 import {useSession} from "@shared/auth/useSession.ts";
+import {Loader} from "@shared/components/feedback/Loader.tsx";
 import {useDocumentTitle} from "@shared/hooks/useDocumentTitle.ts";
 import {useLocale} from "@shared/hooks/useLocale.ts";
-import {paths} from "@shared/routing/paths.ts";
+import {type AuthLocationState, paths, readAuthLocationState} from "@shared/routing/paths.ts";
 import {authClasses} from "@shared/styles/ts/login/AuthStyles.ts";
+import {feedbackClasses} from "@shared/styles/ts/shared/FeedbackStyles.ts";
 import {type Dispatch, type ReactElement, type SetStateAction, useCallback, useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
-import {Navigate, type NavigateFunction, type SetURLSearchParams, useNavigate, useSearchParams} from "react-router-dom";
+import {type Location, Navigate, type NavigateFunction, type SetURLSearchParams, useLocation, useNavigate, useSearchParams} from "react-router-dom";
 import type {Translation} from '@i18n/translation.ts';
-import type {SessionValue} from '@shared/auth/sessionContext.ts';
+import {SessionStatus, type SessionValue} from '@shared/auth/sessionContext.ts';
 
 const REDIRECT_DELAY_MS: number = 1200;
 
-/** Só endereços do próprio front (evita usar ?next= para mandar a pessoa a outro site). */
-function safeNext(next: string | null, locale: Locale): string {
-    return next !== null && next.startsWith("/") && !next.startsWith("//") ? next : paths.home(locale);
+/**
+ * Só caminhos do próprio front: começa com "/", sem "//" e sem barra
+ * invertida (que alguns navegadores leem como "/": "/\site" viraria
+ * "//site", outro site).
+ *
+ * NOTA (nov/2026): o `next` agora vem do state da navegação (ProtectedRoute),
+ * que um link de fora não consegue preencher; a conferência continua.
+ */
+function safeNext(next: string | undefined, locale: Locale): string {
+    if (next === undefined || !next.startsWith("/") || next.startsWith("//") || next.includes("\\")) return paths.home(locale);
+    return next;
 }
 
 export default function AuthPage(): ReactElement {
@@ -29,16 +39,19 @@ export default function AuthPage(): ReactElement {
     const locale: Locale = useLocale();
     const navigate: NavigateFunction = useNavigate();
     const session: SessionValue = useSession();
+    const location: Location = useLocation();
     const [searchParams]: [URLSearchParams, SetURLSearchParams] = useSearchParams();
+    const received: AuthLocationState = readAuthLocationState(location.state);
     const [mode, setMode]: [AuthMode, Dispatch<SetStateAction<AuthMode>>] = useState<AuthMode>(searchParams.get("mode") === "register" ? AuthMode.Register : AuthMode.Login);
-    const [email, setEmail]: [string, Dispatch<SetStateAction<string>>] = useState<string>(searchParams.get("email") ?? "");
+    const [email, setEmail]: [string, Dispatch<SetStateAction<string>>] = useState<string>(received.email ?? "");
     const [loggedIn, setLoggedIn]: [boolean, Dispatch<SetStateAction<boolean>>] = useState<boolean>(false);
     const [registered, setRegistered]: [RegistrationResult | null, Dispatch<SetStateAction<RegistrationResult | null>>] = useState<RegistrationResult | null>(null);
-    const next: string = safeNext(searchParams.get("next"), locale);
+    const next: string = safeNext(received.next, locale);
     useDocumentTitle(mode === AuthMode.Login ? t("Log in") : t("Register"));
 
     // NOTA (nov/2026): o redirecionamento usa o router (antes, window.location
-    // recarregava a página inteira) e volta para onde a pessoa estava (?next=).
+    // recarregava a página inteira) e volta para onde a pessoa estava (o
+    // `next` do state da navegação).
     useEffect((): (() => void) | undefined => {
         if (!loggedIn) return undefined;
         const timeout: ReturnType<typeof setTimeout> = setTimeout((): void => {
@@ -55,6 +68,15 @@ export default function AuthPage(): ReactElement {
         setMode(AuthMode.Login);
     };
 
+    // Ao abrir a página, a sessão ainda está sendo recuperada pelo cookie:
+    // quem já está logado vai direto para o `next`, sem ver o formulário.
+    if (session.status === SessionStatus.Restoring) {
+        return (
+            <div className={feedbackClasses.loaderPage}>
+                <Loader label={t("Checking your session…")}/>
+            </div>
+        );
+    }
     if (session.isAuthenticated && !loggedIn) return <Navigate to={next} replace/>;
 
     let content: ReactElement;

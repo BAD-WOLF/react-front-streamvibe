@@ -8,7 +8,6 @@ import {validateAuth} from "@auth/login-register/utils/validateAuth.ts";
 import {calculatePasswordStrength, type PasswordStrength} from "@auth/utils/passwordStrength.service.ts";
 import type {Locale} from "@i18n/locales.ts";
 import {ApiErrorType, isApiError} from "@shared/api/ApiError.ts";
-import {rememberUserId} from "@shared/auth/tokenStorage.ts";
 import {useSession} from "@shared/auth/useSession.ts";
 import {type Dispatch, type FormEvent, type SetStateAction, useCallback, useMemo, useState} from "react";
 import {useTranslation} from "react-i18next";
@@ -60,13 +59,14 @@ export function useAuthForm(
             try {
                 if (mode === AuthMode.Login) {
                     const tokens: LoginResponse = await loginService({email: email.trim(), password});
-                    session.startSession({token: tokens.token, refreshToken: tokens.refresh_token});
+                    // NOTA (nov/2026): só o access token vem no corpo; o refresh token
+                    // chegou no cookie HttpOnly da resposta, que o navegador guardou.
+                    session.startSession(tokens.token);
                     onLoggedIn();
                     return;
                 }
 
                 const {data}: ApiResult<RegisterResponse> = await registerService(locale, {email: email.trim(), password, agreeTerms});
-                rememberUserId(email.trim(), data.user_id);
                 onRegistered({email: email.trim(), userId: data.user_id, deliveryError: null});
             } catch (err: unknown) {
                 if (mode === AuthMode.Register && isApiError(err) && err.type === ApiErrorType.EmailDelivery) {

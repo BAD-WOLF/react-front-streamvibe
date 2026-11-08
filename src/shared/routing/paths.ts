@@ -23,13 +23,30 @@ function withQuery(path: string, query: QueryParams): string {
 
 export type AuthQuery = {
     mode?: 'register' | undefined;
+};
+
+/**
+ * NOTA (nov/2026): o que o login e a troca de senha recebem de quem manda
+ * para lá — para onde voltar depois do login (next) e o email já digitado —
+ * vai no state da navegação, e não mais na query (?next=, ?email=). O
+ * endereço fica limpo, o email não aparece na URL (nem no histórico, nem nos
+ * logs de um servidor ou proxy), e um link de fora não escolhe para onde o
+ * login manda a pessoa.
+ */
+export type AuthLocationState = {
     next?: string | undefined;
     email?: string | undefined;
 };
 
-export type RepasswordQuery = {
-    email?: string | undefined;
-};
+/** O state que chegou com a navegação, conferido campo a campo (o histórico pode trazer qualquer coisa). */
+export function readAuthLocationState(state: unknown): AuthLocationState {
+    if (typeof state !== 'object' || state === null) return {};
+    const candidate: Record<string, unknown> = state as Record<string, unknown>;
+    return {
+        next: typeof candidate['next'] === 'string' ? candidate['next'] : undefined,
+        email: typeof candidate['email'] === 'string' ? candidate['email'] : undefined,
+    };
+}
 
 export type MovieListQuery = {
     window?: TrendingTimeWindow | undefined;
@@ -40,7 +57,7 @@ export type AppPaths = {
     home: (locale: Locale) => string;
     auth: (locale: Locale, query?: AuthQuery) => string;
     verifyEmail: (locale: Locale) => string;
-    repassword: (locale: Locale, query?: RepasswordQuery) => string;
+    repassword: (locale: Locale) => string;
     repasswordToken: (locale: Locale, token: string) => string;
     account: (locale: Locale) => string;
     movieList: (locale: Locale, list: MovieListName, query?: MovieListQuery) => string;
@@ -57,8 +74,7 @@ export const paths: AppPaths = {
     auth: (locale: Locale, query: AuthQuery = {}): string =>
         withQuery(`/${locale}/auth`, query),
     verifyEmail: (locale: Locale): string => `/${locale}/auth/verify-email`,
-    repassword: (locale: Locale, query: RepasswordQuery = {}): string =>
-        withQuery(`/${locale}/auth/repassword`, query),
+    repassword: (locale: Locale): string => `/${locale}/auth/repassword`,
     repasswordToken: (locale: Locale, token: string): string => `/${locale}/auth/repassword/${encodeURIComponent(token)}`,
     account: (locale: Locale): string => `/${locale}/account`,
     movieList: (locale: Locale, list: MovieListName, query: MovieListQuery = {}): string =>

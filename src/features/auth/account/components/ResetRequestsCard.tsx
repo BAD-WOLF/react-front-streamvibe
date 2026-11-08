@@ -1,6 +1,5 @@
 import {getUserResetRequests} from '@auth/repassword/services/repassword.service.ts';
 import type {Locale} from '@i18n/locales.ts';
-import {knownUserId} from '@shared/auth/tokenStorage.ts';
 import {useSession} from '@shared/auth/useSession.ts';
 import {EmptyState} from '@shared/components/feedback/EmptyState.tsx';
 import {ErrorMessage} from '@shared/components/feedback/ErrorMessage.tsx';
@@ -18,13 +17,15 @@ import type {SessionValue} from '@shared/auth/sessionContext.ts';
  * Pedidos de troca de senha ativos de uma conta
  * (GET /reset-password/requests/{userId}, 🔒): o dono vê os dele, e
  * ROLE_ADMIN vê os de qualquer conta (403 nos outros casos).
+ *
+ * NOTA (nov/2026): o campo abre com o id da própria conta (`accountId`, do
+ * GET /me), e não mais com o id guardado no cadastro feito neste navegador.
  */
-export default function ResetRequestsCard(): ReactElement {
+export default function ResetRequestsCard({accountId}: { accountId: number | null }): ReactElement {
     const {t}: Translation = useTranslation();
     const locale: Locale = useLocale();
     const session: SessionValue = useSession();
-    const remembered: number | null = session.user !== null ? knownUserId(session.user.email) : null;
-    const [userId, setUserId]: [string, Dispatch<SetStateAction<string>>] = useState<string>(remembered !== null ? String(remembered) : '');
+    const [userId, setUserId]: [string, Dispatch<SetStateAction<string>>] = useState<string>(accountId !== null ? String(accountId) : '');
     const [result, setResult]: [UserResetRequestsResponse | null, Dispatch<SetStateAction<UserResetRequestsResponse | null>>] = useState<UserResetRequestsResponse | null>(null);
     const [error, setError]: [unknown, Dispatch<SetStateAction<unknown>>] = useState<unknown>(null);
     const [loading, setLoading]: [boolean, Dispatch<SetStateAction<boolean>>] = useState<boolean>(false);
@@ -54,7 +55,7 @@ export default function ResetRequestsCard(): ReactElement {
             <p className={accountClasses.cardText}>
                 {session.user?.isAdmin === true
                     ? t('As an administrator, you can look up the requests of any account by its id.')
-                    : t('You can look up the requests of your own account. The account id is filled in when you registered on this device.')}
+                    : t('You can look up the requests of your own account.')}
             </p>
 
             <form className={accountClasses.row} onSubmit={(event: FormEvent<HTMLFormElement>): void => void load(event)}>
