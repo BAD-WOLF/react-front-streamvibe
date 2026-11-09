@@ -479,6 +479,59 @@
           "filters.": "No entry matches these filters."
         }
       }
+    },
+    "log": {
+      "file": {
+        "in": {
+          "{{directory}}.": "No log file in {{directory}}."
+        }
+      }
+    },
+    "line": {
+      "matches": {
+        "these": {
+          "filters.": "No line matches these filters."
+        }
+      }
+    },
+    "limit": "No limit",
+    "longer": {
+      "supported": "No longer supported"
+    },
+    "disk": {
+      "to": {
+        "show.": "No disk to show."
+      }
+    },
+    "swap.": "No swap.",
+    "cgroup": {
+      "to": {
+        "read:": {
+          "the": {
+            "API": {
+              "is": {
+                "not": {
+                  "in": {
+                    "a": {
+                      "container,": {
+                        "or": {
+                          "/sys/fs/cgroup": {
+                            "is": {
+                              "not": {
+                                "mounted.": "No cgroup to read: the API is not in a container, or /sys/fs/cgroup is not mounted."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "Requested": {
@@ -539,7 +592,8 @@
       "yet": "Not confirmed yet"
     },
     "found.": "Not found.",
-    "blocked": "Not blocked"
+    "blocked": "Not blocked",
+    "installed": "Not installed"
   },
   "Access": {
     "token": {
@@ -760,12 +814,80 @@
           }
         }
       }
+    },
+    "OPcache": {
+      "extension": {
+        "is": {
+          "not": {
+            "in": {
+              "the": {
+                "PHP": {
+                  "of": {
+                    "this": {
+                      "container": {
+                        "(the": {
+                          "development": {
+                            "image,": {
+                              "docker/Dockerfile.minimal,": {
+                                "does": {
+                                  "not": {
+                                    "install": {
+                                      "it).": "The OPcache extension is not in the PHP of this container (the development image, docker/Dockerfile.minimal, does not install it)."
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "server,": {
+      "PHP,": {
+        "the": {
+          "dependencies,": {
+            "the": {
+              "processes": {
+                "and": {
+                  "the": {
+                    "logs": {
+                      "of": {
+                        "the": {
+                          "API,": {
+                            "read": {
+                              "on": {
+                                "the": {
+                                  "spot.": "The server, PHP, the dependencies, the processes and the logs of the API, read on the spot."
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "Log": {
     "out": "Log out",
     "In": "Log In",
-    "in": "Log in"
+    "in": "Log in",
+    "file": "Log file",
+    "lines": "Log lines"
   },
   "Check": {
     "status": "Check status",
@@ -933,7 +1055,8 @@
   "Waiting": {
     "for": {
       "the": {
-        "confirmation...": "Waiting for the confirmation..."
+        "confirmation...": "Waiting for the confirmation...",
+        "disk": "Waiting for the disk"
       }
     }
   },
@@ -1083,6 +1206,35 @@
                                 "spam": {
                                   "folder.": "A link was already sent and still works until {{date}}. Check your inbox and the spam folder."
                                 }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Windows": {
+      "folder": {
+        "mounted": {
+          "by": {
+            "WSL": {
+              "usually": {
+                "shows": {
+                  "up": {
+                    "as": {
+                      "9p,": {
+                        "and": {
+                          "it": {
+                            "is": {
+                              "much": {
+                                "slower.": "A Windows folder mounted by WSL usually shows up as 9p, and it is much slower."
                               }
                             }
                           }
@@ -1251,7 +1403,18 @@
   },
   "Loading...": "Loading...",
   "Load": {
-    "more": "Load more"
+    "more": "Load more",
+    "average": {
+      "(1,": {
+        "5": {
+          "and": {
+            "15": {
+              "min)": "Load average (1, 5 and 15 min)"
+            }
+          }
+        }
+      }
+    }
   },
   "View": {
     "Details": "View Details"
@@ -1337,7 +1500,8 @@
           "CDN": "Open on the image CDN"
         }
       }
-    }
+    },
+    "connections": "Open connections"
   },
   "Directed": {
     "by": "Directed by"
@@ -1428,7 +1592,9 @@
     "accounts": {
       "found_one": "{{count}} account found",
       "found_other": "{{count}} accounts found"
-    }
+    },
+    "processes_one": "{{count}} process",
+    "processes_other": "{{count}} processes"
   },
   "Official": {
     "site": "Official site",
@@ -1441,7 +1607,8 @@
   "All": {
     "videos": "All videos",
     "actions": "All actions",
-    "roles": "All roles"
+    "roles": "All roles",
+    "levels": "All levels"
   },
   "About": {
     "the": {
@@ -1470,7 +1637,12 @@
         }
       }
     },
-    "movies...": "Search movies..."
+    "movies...": "Search movies...",
+    "in": {
+      "the": {
+        "message": "Search in the message"
+      }
+    }
   },
   "Use": {
     "a": {
@@ -1557,6 +1729,9 @@
       "full": {
         "biography": "Read the full biography"
       }
+    },
+    "at": {
+      "{{time}}": "Read at {{time}}"
     }
   },
   "Credits": "Credits",
@@ -1755,6 +1930,33 @@
           }
         }
       }
+    },
+    "5": {
+      "s": {
+        "for": {
+          "the": {
+            "server": {
+              "and": {
+                "the": {
+                  "processes,": {
+                    "every": {
+                      "30": {
+                        "s": {
+                          "for": {
+                            "the": {
+                              "dependencies.": "Every 5 s for the server and the processes, every 30 s for the dependencies."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "Sessions": {
@@ -1775,7 +1977,8 @@
     "on": "Created on"
   },
   "Last": {
-    "login": "Last login"
+    "login": "Last login",
+    "migration": "Last migration"
   },
   "Never": "Never",
   "None.": "None.",
@@ -1810,5 +2013,326 @@
   "User": "User",
   "Developer": "Developer",
   "Administrator": "Administrator",
-  "Owner": "Owner"
+  "Owner": "Owner",
+  "System": "System",
+  "Checked": {
+    "on": {
+      "the": {
+        "spot:": {
+          "SELECT": {
+            "1": {
+              "on": {
+                "the": {
+                  "database": {
+                    "and": {
+                      "GET": {
+                        "/3/authentication": {
+                          "on": {
+                            "TMDB": {
+                              "(up": {
+                                "to": {
+                                  "5": {
+                                    "s).": "Checked on the spot: SELECT 1 on the database and GET /3/authentication on TMDB (up to 5 s)."
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Database": "Database",
+  "Answering": "Answering",
+  "Down": "Down",
+  "Latency": "Latency",
+  "Version": "Version",
+  "Migrations": "Migrations",
+  "Executed:": {
+    "{{executed}}": "Executed: {{executed}}"
+  },
+  "Pending:": {
+    "{{pending}}": "Pending: {{pending}}"
+  },
+  "None": {
+    "ran": {
+      "yet": "None ran yet"
+    },
+    "(default": {
+      "values)": "None (default values)"
+    }
+  },
+  "Answered": {
+    "HTTP": {
+      "{{status}}": "Answered HTTP {{status}}"
+    }
+  },
+  "HTTP": {
+    "status": "HTTP status"
+  },
+  "Minimum": {
+    "level": "Minimum level"
+  },
+  "How": {
+    "many": {
+      "lines": "How many lines"
+    }
+  },
+  "Secrets": {
+    "come": {
+      "as": {
+        "***,": {
+          "also": {
+            "in": {
+              "the": {
+                "search.": "Secrets come as ***, also in the search."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Lines": {
+    "shown:": {
+      "{{shown}}.": {
+        "Lines": {
+          "read:": {
+            "{{scanned}}.": "Lines shown: {{shown}}. Lines read: {{scanned}}."
+          }
+        }
+      }
+    }
+  },
+  "There": {
+    "are": {
+      "older": {
+        "lines": {
+          "that": {
+            "were": {
+              "not": {
+                "read:": {
+                  "show": {
+                    "more": {
+                      "lines": {
+                        "or": {
+                          "narrow": {
+                            "the": {
+                              "filter.": "There are older lines that were not read: show more lines or narrow the filter."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "{{used}}": {
+    "of": {
+      "{{total}}": "{{used}} of {{total}}"
+    },
+    "in": {
+      "use,": {
+        "no": {
+          "limit": "{{used}} in use, no limit"
+        }
+      }
+    }
+  },
+  "Sort": {
+    "by": "Sort by"
+  },
+  "PID": {
+    "order": "PID order"
+  },
+  "Most": {
+    "memory": "Most memory",
+    "CPU": {
+      "time": "Most CPU time"
+    }
+  },
+  "In": {
+    "Docker": {
+      "the": {
+        "container": {
+          "has": {
+            "its": {
+              "own": {
+                "PIDs:": {
+                  "PID": {
+                    "1": {
+                      "is": {
+                        "its": {
+                          "main": {
+                            "process,": {
+                              "and": {
+                                "the": {
+                                  "processes": {
+                                    "of": {
+                                      "the": {
+                                        "machine": {
+                                          "do": {
+                                            "not": {
+                                              "show": {
+                                                "up.": "In Docker the container has its own PIDs: PID 1 is its main process, and the processes of the machine do not show up."
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "use": "In use"
+  },
+  "Parent": "Parent",
+  "State": "State",
+  "CPU": {
+    "time": "CPU time",
+    "limit": "CPU limit"
+  },
+  "Resident": {
+    "memory": "Resident memory"
+  },
+  "Started": "Started",
+  "Command": "Command",
+  "Time": {
+    "zone": "Time zone"
+  },
+  "Extensions": {
+    "({{total}})": "Extensions ({{total}})"
+  },
+  "Enabled": "Enabled",
+  "Disabled": "Disabled",
+  "OPcache": {
+    "is": {
+      "installed": {
+        "but": {
+          "off": {
+            "(opcache.enable,": {
+              "or": {
+                "opcache.enable_cli": {
+                  "in": {
+                    "a": {
+                      "server": {
+                        "that": {
+                          "runs": {
+                            "on": {
+                              "the": {
+                                "CLI).": "OPcache is installed but off (opcache.enable, or opcache.enable_cli in a server that runs on the CLI)."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Memory": {
+    "of": {
+      "the": {
+        "cache": "Memory of the cache",
+        "machine": "Memory of the machine",
+        "container": "Memory of the container"
+      }
+    }
+  },
+  "Hit": {
+    "rate": "Hit rate"
+  },
+  "Cached": {
+    "scripts": "Cached scripts"
+  },
+  "Wasted": {
+    "memory": "Wasted memory"
+  },
+  "Environment": "Environment",
+  "Bug": {
+    "fixes": {
+      "until": "Bug fixes until"
+    }
+  },
+  "Security": {
+    "fixes": {
+      "until": "Security fixes until"
+    }
+  },
+  "Bundles": {
+    "({{total}})": "Bundles ({{total}})"
+  },
+  "Disks": "Disks",
+  "Machine": "Machine",
+  "Hostname": "Hostname",
+  "Operating": {
+    "system": "Operating system"
+  },
+  "Kernel": "Kernel",
+  "Architecture": "Architecture",
+  "CPUs": "CPUs",
+  "Uptime": "Uptime",
+  "Swap": "Swap",
+  "Container": "Container",
+  "Process": {
+    "count": "Process count"
+  },
+  "{{value}}": {
+    "CPUs": "{{value}} CPUs"
+  },
+  "Automatic": {
+    "refresh": "Automatic refresh"
+  },
+  "Refresh": {
+    "now": "Refresh now"
+  },
+  "Server": "Server",
+  "PHP": {
+    "and": {
+      "Symfony": "PHP and Symfony"
+    }
+  },
+  "Dependencies": "Dependencies",
+  "Processes": "Processes",
+  "Logs": "Logs",
+  "Running": "Running",
+  "Sleeping": "Sleeping",
+  "Stopped": "Stopped",
+  "Zombie": "Zombie",
+  "Idle": "Idle",
+  "Dead": "Dead",
+  "Unknown": "Unknown"
 }

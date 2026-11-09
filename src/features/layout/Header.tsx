@@ -97,13 +97,18 @@ export function Header(): ReactElement {
         {label: t('Top Rated'), to: paths.movieList(locale, 'top-rated')},
         {label: t('Now Playing'), to: paths.movieList(locale, 'now-playing')},
     ];
-    // NOTA (nov/2026, papéis): a administração aparece para ROLE_ADMIN e acima.
+    // NOTA (nov/2026, papéis): o painel do sistema aparece para ROLE_DEV e
+    // acima; a administração, para ROLE_ADMIN e acima.
+    const systemItems: MenuItem[] = session.user !== null && includesRole(session.user.role, Role.Dev)
+        ? [{label: t('System'), to: paths.system(locale)}]
+        : [];
     const adminItems: MenuItem[] = session.user !== null && includesRole(session.user.role, Role.Admin)
         ? [{label: t('Administration'), to: paths.adminUsers(locale)}]
         : [];
     const accountItems: MenuItem[] = session.isAuthenticated
         ? [
             {label: t('My account'), to: paths.account(locale)},
+            ...systemItems,
             ...adminItems,
             {label: t('Log out'), onClick: (): void => {
                 // NOTA (nov/2026): o endSession() esquece o token na hora (aqui e

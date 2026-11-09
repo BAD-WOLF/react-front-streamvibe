@@ -70,6 +70,7 @@ export default defineConfig(({mode}: ConfigEnv): UserConfig => ({
             '@content': path.resolve(__dirname, 'src/features/Content'),
             '@layout': path.resolve(__dirname, 'src/features/layout'),
             '@shared': path.resolve(__dirname, 'src/shared'),
+            '@system': path.resolve(__dirname, 'src/features/system'),
         },
     },
 
