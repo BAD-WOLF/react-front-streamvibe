@@ -31,7 +31,8 @@ export function formatMoney(amount: number | null | undefined, locale: Locale): 
 
 export function formatBytes(bytes: number | null | undefined, locale: Locale): string | null {
     if (bytes === null || bytes === undefined) return null;
-    const units: string[] = ['B', 'KB', 'MB', 'GB'];
+    // NOTA (nov/2026): + TB, para os discos do painel do sistema.
+    const units: string[] = ['B', 'KB', 'MB', 'GB', 'TB'];
     let value: number = bytes;
     let unit: number = 0;
     while (value >= 1024 && unit < units.length - 1) {

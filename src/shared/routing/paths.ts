@@ -1,6 +1,7 @@
 import type {Locale} from '@i18n/locales.ts';
 import type {AuditLogFilters, UserListFilters} from '@shared/types/admin/index.ts';
 import type {MovieListName, TrendingTimeWindow} from '@shared/types/movie/index.ts';
+import {DEFAULT_LOG_LIMIT, type SystemQuery, SystemTab} from '@shared/types/system/index.ts';
 
 type QueryParams = Record<string, string | number | undefined>;
 
@@ -83,6 +84,7 @@ export type AppPaths = {
     adminUsers: (locale: Locale, query?: UserListFilters) => string;
     adminUser: (locale: Locale, userId: number) => string;
     auditLog: (locale: Locale, query?: AuditLogFilters) => string;
+    system: (locale: Locale, query?: SystemQuery) => string;
 };
 
 /** true/false da query; undefined (sem filtro) fica fora da URL. */
@@ -125,6 +127,15 @@ export const paths: AppPaths = {
         page: pageParam(query.page),
         user_id: query.user_id,
         action: query.action,
+    }),
+    // NOTA (nov/2026): o painel do sistema (ROLE_DEV). A aba e os filtros dos
+    // logs na URL; o que é padrão (a aba Servidor, 200 linhas) fica de fora.
+    system: (locale: Locale, query: SystemQuery = {}): string => withQuery(`/${locale}/system`, {
+        tab: query.tab === SystemTab.Server ? undefined : query.tab,
+        file: query.file,
+        level: query.level,
+        search: query.search?.trim(),
+        limit: query.limit === DEFAULT_LOG_LIMIT ? undefined : query.limit,
     }),
 };
 

@@ -17,6 +17,7 @@ import {PersonDetails} from "@content/person/pages/PersonDetails.tsx";
 import {preferredLocale} from "@i18n/locales.ts";
 import {ContentLayout} from "@layout/ContentLayout.tsx";
 import {Role} from "@shared/auth/roles.ts";
+import SystemPanel from "@system/pages/SystemPanel.tsx";
 import type {ReactElement} from "react";
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 
@@ -25,6 +26,8 @@ import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 // As páginas de conteúdo usam rotas 🔒 da API, então pedem login.
 // NOTA (nov/2026, papéis): a administração (contas e log de auditoria) fica
 // sob o RoleRoute de ROLE_ADMIN; um papel abaixo vê o 403.
+// NOTA (nov/2026, painel do sistema): o painel fica sob o RoleRoute de
+// ROLE_DEV (o admin e o owner herdam).
 export default function AppRoutes(): ReactElement {
     return (
         <BrowserRouter>
@@ -44,6 +47,9 @@ export default function AppRoutes(): ReactElement {
                             <Route path="movies/:movieId" element={<MovieDetails/>}/>
                             <Route path="person/:personId" element={<PersonDetails/>}/>
                             <Route path="account" element={<Account/>}/>
+                            <Route element={<RoleRoute role={Role.Dev}/>}>
+                                <Route path="system" element={<SystemPanel/>}/>
+                            </Route>
                             <Route element={<RoleRoute role={Role.Admin}/>}>
                                 <Route path="admin/users" element={<AdminUsers/>}/>
                                 <Route path="admin/users/:userId" element={<AdminUserDetails/>}/>
